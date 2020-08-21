@@ -3,10 +3,10 @@ import "./NavBar.css";
 
 const NavBar = () => {
   return (
-    <div className="NavBar">
+    <div>
       <p>Header</p>
     </div>
   );
 };
 
-
+export default NavBar;
