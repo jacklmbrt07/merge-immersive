@@ -4,12 +4,18 @@ const Schema = mongoose.Schema;
 const cohortSchema = new Schema({
     discipline: {
         type: String,
-        enum: ['UXI', 'SEI', 'DSI'] // the JSX <form> will display the whole name like <option value="UXI">User Experience Immersive</option>
+        enum: ['UXI', 'SEI', 'DSI'], // the JSX <form> will display the whole name like <option value="UXI">User Experience Immersive</option>
+        required: true
     },
     classNo: {
-        type: Number,
-        min: 100,
-        max: 999,
+        type: String,
+        validate: {
+            validator: (v) => {
+                return /d{3}/.test(v)
+            },
+            message: props => `${props.value} is not a valid class number`
+        },
+        required: true,
     }
 },{timestamps: true})
 
@@ -19,9 +25,14 @@ const userSchema = new Schema({
         required: true
     },
     phoneNum: {
-        type: Number,
-        min: 1000000000,
-        max: 9999999999
+        type: String,
+        validate: {
+            validator: (v) => {
+                return /d{10}/.test(v)
+            },
+            message: props => `${props.value} is not a valid phone number!`
+        },
+        required: false
     },
     email: {
         type: String,
@@ -31,9 +42,9 @@ const userSchema = new Schema({
     },
     location: String,
     favEmoji: String, // this might need an install
-    projects: [String],
-    hobbies: [String],
-    publications: [String],
+    projects: [{type: String}],
+    hobbies: [{type: String}],
+    publications: [{type: String}],
     website: String,
     cohort: cohortSchema,
     password: String,
