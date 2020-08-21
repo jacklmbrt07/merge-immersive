@@ -5,7 +5,6 @@ const NavBar = () => {
   return (
     <div className="NavBar">
       <p>Header</p>
-      <p>Testing</p>
     </div>
   );
 };
