@@ -1,7 +1,19 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema({
+const cohortSchema = new Schema({
+    discipline: {
+        type: String,
+        enum: ['UXI', 'SEI', 'DSI'] // the JSX <form> will display the whole name like <option value="UXI">User Experience Immersive</option>
+    },
+    classNo: {
+        type: Number,
+        min: 100,
+        max: 999,
+    }
+},{timestamps: true})
+
+const userSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -27,17 +39,5 @@ const userSchema = new mongoose.Schema({
     password: String,
 
 }, {timestamps: true})
-
-const cohortSchema = new mongoose.Schema({
-    discipline: {
-        type: String,
-        enum: ['UXI', 'SEI', 'DSI'] // the JSX <form> will display the whole name like <option value="UXI">User Experience Immersive</option>
-    },
-    classNo: {
-        type: Number,
-        min: 100,
-        max: 999,
-    }
-},{timestamps: true})
 
 module.exports = mongoose.model("User", userSchema);
