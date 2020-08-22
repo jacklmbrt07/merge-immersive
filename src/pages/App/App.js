@@ -30,10 +30,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar user={this.state.user} />
-        {/* <NavBar
-          user={this.state.user}
-        /> */}
         <Switch>
           <Route
             exact
