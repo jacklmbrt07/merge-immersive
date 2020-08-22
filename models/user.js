@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const bcrypt = require('bcrypt');
+const SALT_ROUNDS = 6;
+
 const cohortSchema = new Schema({
     discipline: {
         type: String,
@@ -17,7 +20,7 @@ const cohortSchema = new Schema({
         },
         required: true,
     }
-},{timestamps: true})
+}, { timestamps: true })
 
 const userSchema = new Schema({
     name: {
@@ -42,13 +45,23 @@ const userSchema = new Schema({
     },
     location: String,
     favEmoji: String, // this might need an install
-    projects: [{type: String}],
-    hobbies: [{type: String}],
-    publications: [{type: String}],
+    projects: [{ type: String }],
+    hobbies: [{ type: String }],
+    publications: [{ type: String }],
     website: String,
     cohort: cohortSchema,
     password: String,
 
-}, {timestamps: true})
+}, { timestamps: true })
+
+userSchema.pre('save', function (next) {
+    const user = this;
+    if (!user.isModified('passoword')) return next();
+    bcrypt.hash(user.password, SALT_ROUNDS, function (err, hash) {
+        if (err) return next(err);
+        user.password = hash;
+        return next();
+    })
+});
 
 module.exports = mongoose.model("User", userSchema);
