@@ -1,13 +1,16 @@
 import React from "react";
+import "./HomePage.css";
 
 const HomePage = () => {
   return (
     <div>
-      <section className="hero">
+      <section className="home-hero">
         <h1>Merge Immersive</h1>
       </section>
       <section className="students">
-        <h2>Students</h2>
+        <div className="container">
+          <h2>Students</h2>
+        </div>
       </section>
     </div>
   );

@@ -1,0 +1,35 @@
+.home-hero {
+  background-image: url("https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-hero::before {
+  content: "";
+  display: block;
+  height: 0;
+  padding-top: 60%;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #fa4542;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.students {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
