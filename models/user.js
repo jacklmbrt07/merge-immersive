@@ -54,7 +54,7 @@ const userSchema = new Schema({
     website: String,
     cohort: cohortSchema,
     password: String,
-    
+
 }, { timestamps: true })
 
 userSchema.pre('save', function (next) {
@@ -66,5 +66,9 @@ userSchema.pre('save', function (next) {
         return next();
     })
 });
+
+userSchema.methods.comparePassword = function (tryPassword, cb) {
+    bcrypt.compare(tryPassword, this.password, cb);
+};
 
 module.exports = mongoose.model("User", userSchema);
