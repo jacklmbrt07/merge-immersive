@@ -5,7 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 
-import NavBar from "../../components/NavBar/NavBar";
+// import NavBar from "../../components/NavBar/NavBar";
 import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer";
 
@@ -28,9 +28,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar
+        {/* <NavBar
           user={this.state.user}
-        />
+        /> */}
         <Switch>
           <Route exact path='/' render={() =>
             <HomePage
