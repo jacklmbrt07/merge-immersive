@@ -34,9 +34,22 @@ import { CSSTransition } from 'react-transition-group';
 
 const NavBar = (props) => {
   let nav = props.user ? (
-    <NavMenu>
-      <NavItem icon={<CaretIcon />} />
-    </NavMenu>
+    <div class="header">
+      <div class="left-nav">
+        <Link to="/">Home</Link>
+        <Link to="/students">Students</Link>
+        <span>WELCOME, {props.user.name}</span>
+      </div>
+      <NavMenu>
+        <Link to="" onClick={props.handleLogout}>
+          {" "}
+          LOG OUT
+        </Link>
+        <NavItem icon={<CaretIcon />}>
+          <DropdownMenu></DropdownMenu>
+        </NavItem>
+      </NavMenu>
+    </div>
   ) : (
       <div class="header">
         <div class="left-nav">

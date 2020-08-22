@@ -118,6 +118,14 @@ a {
   transition: height var(--speed) ease;
 }
 
+span {
+  color: white
+}
+
+.left-nav a {
+  padding-right: 20px
+}
+
 .menu {
   width: 100%;
 }
