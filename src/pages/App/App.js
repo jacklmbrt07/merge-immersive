@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
@@ -10,7 +10,12 @@ import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer";
 
 class App extends React.Component {
-
+  constructor() {
+    super();
+    this.state = {
+      user: userService.getUser()
+    };
+  }
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -23,12 +28,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar
+          user={this.state.user}
+        />
         <Switch>
           <Route exact path='/' render={() =>
             <HomePage
               handleLogout={this.handleLogout}
-              // user={this.state.user}
+              user={this.state.user}
             />
           } />
           <Route exact path='/signup' render={({ history }) =>
