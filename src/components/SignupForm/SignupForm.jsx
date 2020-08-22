@@ -62,7 +62,7 @@ class SignupForm extends Component {
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12">
-                            <input type="number" className="form-control" placeholder="Class Number" value={this.state.classNo} name="classNo" onChange={this.handleChange} />
+                            <input type="text" className="form-control" placeholder="Class Number" value={this.state.classNo} name="classNo" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-group">

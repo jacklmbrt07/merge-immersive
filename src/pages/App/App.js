@@ -28,7 +28,7 @@ class App extends React.Component {
           <Route exact path='/' render={() =>
             <HomePage
               handleLogout={this.handleLogout}
-              user={this.state.user}
+              // user={this.state.user}
             />
           } />
           <Route exact path='/signup' render={({ history }) =>

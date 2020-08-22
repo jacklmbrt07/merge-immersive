@@ -43,7 +43,10 @@ const userSchema = new Schema({
         lowercase: true,
         unique: true,
     },
-    location: String,
+    location: {
+        city: String,
+        unitedState: String,
+    },
     favEmoji: String, // this might need an install
     projects: [{ type: String }],
     hobbies: [{ type: String }],
@@ -51,7 +54,7 @@ const userSchema = new Schema({
     website: String,
     cohort: cohortSchema,
     password: String,
-
+    
 }, { timestamps: true })
 
 userSchema.pre('save', function (next) {
