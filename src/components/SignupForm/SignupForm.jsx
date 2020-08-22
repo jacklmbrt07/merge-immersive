@@ -24,7 +24,7 @@ class SignupForm extends Component {
         e.preventDefault();
         try {
             await userService.signup(this.state);
-            this.props.handleSignup();
+            this.props.handleSignUpOrLogin();
             this.props.history.push('/');
 
         } catch (err) {
@@ -32,9 +32,9 @@ class SignupForm extends Component {
         }
     }
 
-    isFormInvalid() {
-        return !(this.state.name && this.state.email && this.state.password && this.state.discipline && this.state.classNo === this.state.passwordConf);
-    }
+    // isFormInvalid() {
+    //     return !(this.state.name && this.state.email && this.state.password && this.state.discipline && this.state.classNo === this.state.passwordConf);
+    // }
 
     render() {
         return (
@@ -77,7 +77,8 @@ class SignupForm extends Component {
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12 text-center">
-                            <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+                            {/* disabled={this.isFormInvalid()} */}
+                            <button className="btn btn-default" >Sign Up</button>&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
                         </div>
                     </div>

@@ -28,16 +28,16 @@ const NavBar = (props) => {
       <span>WELCOME, {props.user.name}</span>
     </div>
   ) : (
-    <nav className="navbar">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link to="/login">LOG IN</Link>
+      <nav className="navbar">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link to="/login">LOG IN</Link>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <Link to="/signup">SIGN UP</Link>
-        </li>
-      </ul>
-    </nav>
-  );
+          </li>
+        </ul>
+      </nav>
+    );
   return <div>{nav}</div>;
 };
 
