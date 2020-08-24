@@ -26,12 +26,13 @@ function logout() {
 }
 
 function login(creds) {
-    return (BASE_URL + 'login', {
-        method: "POST",
-        headers: new Headers({ "Content-Type": 'application/json' }),
-        body: JSON.stringify(creds)
-    })
-    .then(({ token }) => tokenService.setToken(token));
+  return fetch(BASE_URL + "login", {
+    method: "POST",
+    headers: new Headers({ "Content-Type": "application/json" }),
+    body: JSON.stringify(creds),
+  })
+    .then(({ token }) => tokenService.setToken(token))
+    .catch((err) => console.log("userService: ", err));
 }
 
 export default {

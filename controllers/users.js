@@ -14,8 +14,9 @@ async function signup(req, res) {
     await user.save();
     const token = createJWT(user);
     res.json({ token });
-    console.log(token)
+    console.log(token);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 }
@@ -30,10 +31,12 @@ async function login(req, res) {
         const token = createJWT(user);
         res.json({ token });
       } else {
+        console.log(err);
         return res.status(401).json({ err: "bad credentials" });
       }
     });
   } catch (err) {
+    console.log(err);
     return res.status(401).json(err);
   }
 }
