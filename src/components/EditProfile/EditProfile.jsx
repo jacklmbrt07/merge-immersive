@@ -5,8 +5,8 @@ import Container from "react-bootstrap/Container";
 
 class EditProfile extends Component {
   state = {
+    //do not change users email as it is tied to OAuth
     name: "",
-    email: "",
     phoneNum: "",
     location: "",
     favEmoji: "",
@@ -17,6 +17,7 @@ class EditProfile extends Component {
     password: "",
     bio: "",
   };
+
   handleChange = (event) => {};
   handleSubmit = (event) => {
     event.preventDefault();
@@ -41,15 +42,16 @@ class EditProfile extends Component {
             </Form.Group>
             <Form.Row>
               <Form.Group>
-                <Form.Label>E-mail</Form.Label>
+                <Form.Label>Phone #</Form.Label>
                 <Form.Control
-                  type="email"
+                  type="tel"
                   placeholder=""
                   value={this.state.name}
-                  name="email"
+                  name="phone"
                   onChange={this.handleChange}
                 />
               </Form.Group>
+
               <Form.Group>
                 <Form.Label>Password</Form.Label>
                 <Form.Control
@@ -91,40 +93,12 @@ class EditProfile extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Form.Group>
-              <Form.Label>Phone #</Form.Label>
-              <Form.Control
-                type="tel"
-                placeholder=""
-                value={this.state.name}
-                name="phone"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
             <Button variant={"primary"} type="submit">
               Submit Changes
             </Button>{" "}
           </Form>
         </Container>
       </div>
-
-      //   <div className="EditProfile">
-      //     <h3>Edit Your Profile</h3>
-      //     <div className="EditProfile form">
-      //       <form action="">
-      //         <div className="edit-name">
-      //           <input
-      //             type="text"
-      //             className="form-control"
-      //             placeholder={this.state.name}
-      //             value={this.state.name}
-      //             name="name"
-      //             onChange={this.handleChange}
-      //           />
-      //         </div>
-      //       </form>
-      //     </div>
-      //   </div>
     );
   }
 }
