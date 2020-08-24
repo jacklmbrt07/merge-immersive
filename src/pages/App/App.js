@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import { getGitHubUser } from '../../Services/github-api';
-import { getGUser } from '../../Services/user';
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import EditProfilePage from "../EditProfilePage/EditProfilePage";
@@ -25,8 +24,7 @@ class App extends React.Component {
     };
   }
   async componentDidMount() {
-    const { user } = await getGUser;
-    const userData = await getGitHubUser(user);
+    const userData = await getGitHubUser();
     console.log(userData);
     this.setState({ gUser: userData.avatar_url, repos: userData.repos, repoName: userData.repos.name })
   }
@@ -70,8 +68,8 @@ class App extends React.Component {
           <Route
             exact
             path="/login"
-            render={({ history }) => (
-              <LoginPage handleSignUpOrLogin={this.handleSignUpOrLogin} />
+            render={(props) => (
+              <LoginPage {...props} handleSignUpOrLogin={this.handleSignUpOrLogin} />
             )}
           />
           <Route

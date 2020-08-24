@@ -30,10 +30,12 @@ async function login(req, res) {
         const token = createJWT(user);
         res.json({ token });
       } else {
+        console.log(err)
         return res.status(401).json({ err: "bad credentials" });
       }
     });
   } catch (err) {
+    console.log(err)
     return res.status(401).json(err);
   }
 }

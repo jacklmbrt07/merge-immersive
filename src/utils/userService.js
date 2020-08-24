@@ -26,7 +26,7 @@ function logout() {
 }
 
 function login(creds) {
-    return (BASE_URL + 'login', {
+    return fetch(BASE_URL + 'login', {
         method: "POST",
         headers: new Headers({ "Content-Type": 'application/json' }),
         body: JSON.stringify(creds)
@@ -35,7 +35,8 @@ function login(creds) {
             if (res.ok) return res.json();
             throw new Error('Bad Credentials!');
         })
-        .then(({ token }) => tokenService.setToken(token));
+        .then(({ token }) => tokenService.setToken(token))
+        .catch((err) => console.log(err));
 }
 
 export default {
