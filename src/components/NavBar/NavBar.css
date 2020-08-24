@@ -20,6 +20,10 @@
   justify-content: center;
 }
 
+.navbar-nav-j a {
+  margin-right: 20px;
+}
+
 .icon-button {
   --button-size: calc(var(--nav-size) * 0.5);
   width: var(--button-size);

@@ -8,30 +8,6 @@ import { ReactComponent as ArrowIcon } from '../../icons/arrow.svg';
 import { ReactComponent as BoltIcon } from '../../icons/bolt.svg';
 import { CSSTransition } from 'react-transition-group';
 
-// const NavBar = (props) => {
-//   let nav = props.user ? (
-//     <div>
-//       <Link to="" onClick={props.handleLogout}>
-//         {" "}
-//         LOG OUT
-//       </Link>
-//       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-//       <span>WELCOME, {props.user.name}</span>
-//     </div>
-//   ) : (
-//       <nav className="navbar">
-//         <ul className="navbar-nav">
-//           <li className="nav-item">
-//             <Link to="/login">LOG IN</Link>
-//           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-//           <Link to="/signup">SIGN UP</Link>
-//           </li>
-//         </ul>
-//       </nav>
-//     );
-//   return <div>{nav}</div>;
-// };
-
 const NavBar = (props) => {
   let nav = props.user ? (
     <div class="header">

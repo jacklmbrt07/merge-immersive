@@ -8,7 +8,6 @@ import LoginPage from "../LoginPage/LoginPage";
 import EditProfilePage from "../EditProfilePage/EditProfilePage";
 import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
-import Footer from "../../components/Footer/Footer";
 import Error from "../Error/Error";
 
 import AllUsersPage from "../AllUsersPage/AllUsersPage";
@@ -46,7 +45,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Switch>
           <Route
             exact
@@ -86,8 +85,7 @@ class App extends React.Component {
           />
           <Error />
         </Switch>
-        <Footer />
-      </div>
+      </>
     );
   }
 }
