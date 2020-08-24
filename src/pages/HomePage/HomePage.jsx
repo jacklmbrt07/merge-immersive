@@ -1,19 +1,14 @@
 import React from "react";
 import "./HomePage.css";
 import NavBar from "../../components/NavBar/NavBar";
+import Feed from "../../components/Feed/Feed"
+// import { Link } from "react-router-dom";
 
 const HomePage = (props) => {
   return (
     <div>
       <NavBar user={props.user} handleLogout={props.handleLogout} />
-      <section className="home-hero">
-        <h1>Merge Immersive</h1>
-      </section>
-      <section className="students">
-        <div className="container">
-          <h2>Students</h2>
-        </div>
-      </section>
+      <Feed />
     </div>
   );
 };

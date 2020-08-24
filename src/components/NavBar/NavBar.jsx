@@ -123,6 +123,16 @@ function DropdownMenu() {
     );
   }
 
+  function DropdownItemLogOut(props) {
+    return (
+      <Link to="" className="menu-item" onClick={props.handleLogout}>
+        <span className="icon-button">{props.leftIcon}</span>
+        {props.children}
+        <span className="icon-right">{props.rightIcon}</span>
+      </Link>
+    );
+  }
+
   return (
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
 
@@ -141,6 +151,8 @@ function DropdownMenu() {
             goToMenu="settings">
             Settings
           </DropdownItem>
+
+          <DropdownItemLogOut>Log Out</DropdownItemLogOut>
         </div>
       </CSSTransition>
 
