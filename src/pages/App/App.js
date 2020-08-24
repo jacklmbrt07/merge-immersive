@@ -7,7 +7,6 @@ import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import EditProfilePage from "../EditProfilePage/EditProfilePage";
 import userService from "../../utils/userService";
-import NavBar from "../../components/NavBar/NavBar";
 import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer";
 import Error from "../Error/Error"
@@ -83,8 +82,8 @@ class App extends React.Component {
             path="/edit"// :id?
             render={() => <EditProfilePage user={this.state.user} />}
           />
+          <Error />
         </Switch>
-        <Error />
         <Footer />
       </div>
     );
