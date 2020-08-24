@@ -26,15 +26,10 @@ function logout() {
 }
 
 function login(creds) {
-  return (BASE_URL + "login",
-  {
-    method: "Post",
-    headers: new Headers({ "Content-type": "applications/json" }),
-    body: JSON.stringify(creds),
-  })
-    .then((res) => {
-      if (res.ok) return res.json();
-      throw new Error("Bad Credentials!");
+    return (BASE_URL + 'login', {
+        method: "POST",
+        headers: new Headers({ "Content-Type": 'application/json' }),
+        body: JSON.stringify(creds)
     })
     .then(({ token }) => tokenService.setToken(token));
 }

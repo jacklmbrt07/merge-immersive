@@ -7,7 +7,6 @@ import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import EditProfilePage from "../EditProfilePage/EditProfilePage";
 import userService from "../../utils/userService";
-import NavBar from "../../components/NavBar/NavBar";
 import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer";
 import Error from "../Error/Error";
