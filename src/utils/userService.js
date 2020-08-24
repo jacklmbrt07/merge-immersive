@@ -27,8 +27,8 @@ function logout() {
 
 function login(creds) {
     return (BASE_URL + 'login', {
-        method: "Post",
-        headers: new Headers({ "Content-type": 'applications/json' }),
+        method: "POST",
+        headers: new Headers({ "Content-Type": 'application/json' }),
         body: JSON.stringify(creds)
     })
         .then(res => {
