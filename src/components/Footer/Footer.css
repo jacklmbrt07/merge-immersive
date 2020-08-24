@@ -6,7 +6,4 @@
   background-color: var(--bg);
   padding: 0 1rem;
   border-bottom: var(--border);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }

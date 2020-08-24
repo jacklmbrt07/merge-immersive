@@ -1,7 +1,6 @@
 .feed {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   margin: 2rem 0;
   flex-grow: 1;
@@ -120,6 +119,81 @@ body {
   font-weight: 400;
 }
 
+.profile-card2{
+  width:320px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  transition: all 150ms ease-in-out;
+}
+
+.profile-card2:hover{
+  border: 1px solid #242526;
+  box-shadow: 0 0 10px 1px;
+}
+
+.card-header2{
+  align-self: center;
+  text-align: center;
+  background: #242526;
+  color: #FAFAFA;
+  padding-bottom: 115px;
+  transition: all 150ms ease-in-out;
+}
+
+.card-header2 h1 {
+  padding-top: 20px;
+}
+
+.card-header2:hover{
+  background: #242526;
+}
+
+.image2{
+  margin-top: -90px;
+  height: 150px;
+  width: 150px;
+  align-self: center;
+  border-radius: 50%;
+  transition: all 150ms ease-in-out;
+  z-index: 100;
+}
+.image2:hover{
+  border-radius: 10%;
+}
+.card-info2{
+  padding: 1em;
+}
+.bottom2 h2{
+  text-align:center;
+}
+.card-footer2{
+  width: 310px;
+  border-top: 1px solid gray;
+  align-self: center;
+}
+.card-footer2 ul{
+  display:flex;
+  justify-content: flex-start;;
+}
+.card-footer2 ul li:last-child{
+  margin-left: 85px;
+}
+
+/*Align cards so normal css an flexbox display above cards*/
+
+.version1, .version2{
+  position:relative;
+  left: 14rem;
+  color: #BDBDBD;
+  transition: color 0.4s ease-in-out;
+}
+/*Misc hover animations for titles*/
+.version1:hover, .version2:hover{
+  color: #37474F;
+  max-height:100px;
+}
+
 @media (max-width: 34rem) {
   .container .post-card {
     width: 304px;
@@ -155,4 +229,11 @@ body {
     border-radius: 0;
   }
 
+}
+
+
+.feed-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
