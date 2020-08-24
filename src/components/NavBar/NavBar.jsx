@@ -10,8 +10,8 @@ import { CSSTransition } from 'react-transition-group';
 
 const NavBar = (props) => {
   let nav = props.user ? (
-    <div class="header">
-      <div class="left-nav">
+    <div className="header">
+      <div className="left-nav">
         <Link to="/">Home</Link>
         <Link to="/allusers">Students</Link>
         <span>WELCOME, {props.user.name}</span>
@@ -27,8 +27,8 @@ const NavBar = (props) => {
       </NavMenu>
     </div>
   ) : (
-      <div class="header">
-        <div class="left-nav">
+      <div className="header">
+        <div className="left-nav">
           <Link to="/">Home</Link>
           <Link to="/allusers">Students</Link>
         </div>

@@ -14,10 +14,10 @@ const Feed = (props) => {
               <p>SEI Immersive Student</p>
               <p>Class: 629</p>
             </div>
-            <img class="image2"
+            <img className="image2"
               src="https://avatars2.githubusercontent.com/u/25213510?s=460&u=ccd76bfb4349453011a6f276200dbcf087be71c2&v=4"
               alt="profile" />
-            <div class="card-info2">
+            <div className="card-info2">
               <p>Profile Info</p>
             </div>
           </div>
