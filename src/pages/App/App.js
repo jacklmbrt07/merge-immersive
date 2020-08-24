@@ -1,24 +1,37 @@
 import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import { getGitHubUser } from '../../Services/github-api';
+import { getGUser } from '../../Services/user';
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import EditProfilePage from "../EditProfilePage/EditProfilePage";
 import userService from "../../utils/userService";
-
-// import NavBar from "../../components/NavBar/NavBar";
+import NavBar from "../../components/NavBar/NavBar";
 import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer";
+import Error from "../Error/Error"
 
 import AllUsersPage from "../AllUsersPage/AllUsersPage";
+
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       user: userService.getUser(),
+      gUser: '',
+      repos: '',
+      repoName: '',
     };
   }
+  async componentDidMount() {
+    const { user } = await getGUser;
+    const userData = await getGitHubUser(user);
+    console.log(userData);
+    this.setState({ gUser: userData.avatar_url, repos: userData.repos, repoName: userData.repos.name })
+  }
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -71,6 +84,7 @@ class App extends React.Component {
             render={() => <EditProfilePage user={this.state.user} />}
           />
         </Switch>
+        <Error />
         <Footer />
       </div>
     );
