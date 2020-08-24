@@ -32,7 +32,7 @@ function login(creds) {
     body: JSON.stringify(creds),
   })
     .then(({ token }) => tokenService.setToken(token))
-    .catch((err) => console.log("userService: ", err));
+  // .catch((err) => console.log("userService: ", err));
 }
 
 export default {
