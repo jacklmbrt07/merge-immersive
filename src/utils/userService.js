@@ -31,6 +31,9 @@ function login(creds) {
     headers: new Headers({ "Content-Type": "application/json" }),
     body: JSON.stringify(creds),
   })
+    .then((res) => {
+      if (res.ok) return res.json();
+    })
     .then(({ token }) => tokenService.setToken(token))
     .catch((err) => console.log("userService: ", err));
 }
