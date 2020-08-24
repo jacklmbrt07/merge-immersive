@@ -69,7 +69,7 @@ userSchema.pre("save", function (next) {
   bcrypt.hash(user.password, SALT_ROUNDS, function (err, hash) {
     if (err) return next(err);
     user.password = hash;
-    return next();
+    next();
   });
 });
 

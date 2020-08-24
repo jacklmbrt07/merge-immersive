@@ -72,7 +72,7 @@ const NavBar = (props) => {
 function NavMenu(props) {
   return (
     <nav className="navbar">
-      <ul className="navbar-nav">{props.children}</ul>
+      <ul className="navbar-nav-j">{props.children}</ul>
     </nav>
   );
 }
@@ -123,16 +123,6 @@ function DropdownMenu() {
     );
   }
 
-  function DropdownItemLogOut(props) {
-    return (
-      <Link to="" className="menu-item" onClick={props.handleLogout}>
-        <span className="icon-button">{props.leftIcon}</span>
-        {props.children}
-        <span className="icon-right">{props.rightIcon}</span>
-      </Link>
-    );
-  }
-
   return (
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
 
@@ -151,8 +141,6 @@ function DropdownMenu() {
             goToMenu="settings">
             Settings
           </DropdownItem>
-
-          <DropdownItemLogOut>Log Out</DropdownItemLogOut>
         </div>
       </CSSTransition>
 

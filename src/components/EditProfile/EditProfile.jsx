@@ -17,7 +17,7 @@ class EditProfile extends Component {
     password: "",
     bio: "",
   };
-
+  
   handleChange = (event) => {};
   handleSubmit = (event) => {
     event.preventDefault();
