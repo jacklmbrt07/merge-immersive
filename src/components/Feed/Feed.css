@@ -2,8 +2,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 2rem 0;
+  padding: 4rem;
   flex-grow: 1;
+  background-color: black;
+  background-image: url(https://i.imgur.com/iWUM6.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
 }
 
 @import 'https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700';
@@ -21,6 +26,10 @@ body {
   display: flex;
   border-radius: 0.3rem;
   margin: 10px;
+}
+
+.container .post-card:first-child {
+  margin-top: 0;
 }
 
 .post-card__content {
@@ -125,6 +134,7 @@ body {
   flex-direction: column;
   box-shadow: 0 1px 5px rgba(0,0,0,0.5);
   transition: all 150ms ease-in-out;
+  background: white;
 }
 
 .profile-card2:hover{
