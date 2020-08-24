@@ -22,6 +22,12 @@ code {
   --speed: 500ms;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 ul {
   list-style: none;
   margin: 0;

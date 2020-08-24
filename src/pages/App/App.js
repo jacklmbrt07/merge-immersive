@@ -8,10 +8,10 @@ import LoginPage from "../LoginPage/LoginPage";
 import EditProfilePage from "../EditProfilePage/EditProfilePage";
 import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
-import Footer from "../../components/Footer/Footer";
 import Error from "../Error/Error";
 
 import AllUsersPage from "../AllUsersPage/AllUsersPage";
+import UserDetail from "../UserDetail/UserDetail"
 
 class App extends React.Component {
   constructor() {
@@ -45,10 +45,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        {/* <NavBar
-          user={this.state.user}
-        /> */}
+      <>
         <Switch>
           <Route
             exact
@@ -77,6 +74,7 @@ class App extends React.Component {
               <LoginPage {...props} handleSignUpOrLogin={this.handleSignUpOrLogin} />
             )}
           />
+          <Route path="/profile" render={() => <UserDetail user={this.state.user} />} />
           <Route
             path="/allusers"
             render={() => <AllUsersPage user={this.state.user} />}
@@ -87,8 +85,7 @@ class App extends React.Component {
           />
           <Error />
         </Switch>
-        <Footer />
-      </div>
+      </>
     );
   }
 }
