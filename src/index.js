@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './pages/App/App';
 import * as serviceWorker from './serviceWorker';
-// import 'bootstrap/dist/css/bootstrap.min.css' // this solves the styling in the signup/login page but ruins the
+import 'bootstrap/dist/css/bootstrap.min.css' // this solves the styling in the signup/login page but ruins the
 
 import { BrowserRouter as Router } from 'react-router-dom'
 
