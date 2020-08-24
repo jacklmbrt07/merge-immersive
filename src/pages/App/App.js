@@ -10,6 +10,7 @@ import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer";
 
 import AllUsersPage from "../AllUsersPage/AllUsersPage";
+import UserDetail from "../UserDetail/UserDetail"
 
 class App extends React.Component {
   constructor() {
@@ -59,6 +60,7 @@ class App extends React.Component {
             )}
           />
           <Route path="/allusers" render={() => <AllUsersPage user={this.state.user} />} />
+          <Route path="/profile" render={() => <UserDetail user={this.state.user} />} />
         </Switch>
         <Footer />
       </div>
