@@ -1,51 +1,55 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 6;
 
-const cohortSchema = new Schema({
+const cohortSchema = new Schema(
+  {
     discipline: {
-        type: String,
-        enum: ['UXI', 'SEI', 'DSI'], // the JSX <form> will display the whole name like <option value="UXI">User Experience Immersive</option>
-        required: true
+      type: String,
+      enum: ["UXI", "SEI", "DSI"], // the JSX <form> will display the whole name like <option value="UXI">User Experience Immersive</option>
+      required: true,
     },
     classNo: {
-        type: String,
-        validate: {
-            validator: (v) => {
-                return /d{3}/.test(v)
-            },
-            message: props => `${props.value} is not a valid class number`
+      type: String,
+      validate: {
+        validator: (v) => {
+          return /d{3}/.test(v);
         },
-        required: true,
-    }
-}, { timestamps: true })
+        message: (props) => `${props.value} is not a valid class number`,
+      },
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
-const userSchema = new Schema({
+const userSchema = new Schema(
+  {
     name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     phoneNum: {
-        type: String,
-        validate: {
-            validator: (v) => {
-                return /d{10}/.test(v)
-            },
-            message: props => `${props.value} is not a valid phone number!`
+      type: String,
+      validate: {
+        validator: (v) => {
+          return /d{10}/.test(v);
         },
-        required: false
+        message: (props) => `${props.value} is not a valid phone number!`,
+      },
+      required: false,
     },
     email: {
-        type: String,
-        required: true,
-        lowercase: true,
-        unique: true,
+      type: String,
+      required: true,
+      lowercase: true,
+      unique: true,
     },
     location: {
-        city: String,
-        unitedState: String,
+      city: String,
+      unitedState: String,
     },
     favEmoji: String, // this might need an install
     projects: [{ type: String }],
@@ -54,21 +58,23 @@ const userSchema = new Schema({
     website: String,
     cohort: cohortSchema,
     password: String,
+    bio: String,
+  },
+  { timestamps: true }
+);
 
-}, { timestamps: true })
-
-userSchema.pre('save', function (next) {
-    const user = this;
-    if (!user.isModified('passoword')) return next();
-    bcrypt.hash(user.password, SALT_ROUNDS, function (err, hash) {
-        if (err) return next(err);
-        user.password = hash;
-        return next();
-    })
+userSchema.pre("save", function (next) {
+  const user = this;
+  if (!user.isModified("passoword")) return next();
+  bcrypt.hash(user.password, SALT_ROUNDS, function (err, hash) {
+    if (err) return next(err);
+    user.password = hash;
+    return next();
+  });
 });
 
 userSchema.methods.comparePassword = function (tryPassword, cb) {
-    bcrypt.compare(tryPassword, this.password, cb);
+  bcrypt.compare(tryPassword, this.password, cb);
 };
 
 module.exports = mongoose.model("User", userSchema);

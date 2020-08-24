@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
+import EditProfilePage from "../EditProfilePage/EditProfilePage";
 import userService from "../../utils/userService";
 
 // import NavBar from "../../components/NavBar/NavBar";
@@ -30,7 +31,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar user={this.state.user} />
         {/* <NavBar
           user={this.state.user}
         /> */}
@@ -62,7 +62,14 @@ class App extends React.Component {
               <LoginPage handleSignUpOrLogin={this.handleSignUpOrLogin} />
             )}
           />
-          <Route path="/allusers" render={() => <AllUsersPage user={this.state.user} />} />
+          <Route
+            path="/allusers"
+            render={() => <AllUsersPage user={this.state.user} />}
+          />
+          <Route
+            path="/edit"// :id?
+            render={() => <EditProfilePage user={this.state.user} />}
+          />
         </Switch>
         <Footer />
       </div>
