@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import { Route, Switch } from 'react-router-dom';
+import { getGitHubUser } from '../../Services/github-api';
+import { getGUser } from '../../Services/user';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
@@ -13,9 +15,20 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      gUser: '',
+      repos: '',
+      repoName: '',
+
     };
   }
+  async componentDidMount() {
+    const { user } = await getGUser;
+    const userData = await getGitHubUser(user);
+    console.log(userData);
+    this.setState({ gUser: userData.avatar_url, repos: userData.repos, repoName: userData.repos.name })
+  }
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
