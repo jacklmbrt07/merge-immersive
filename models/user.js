@@ -65,7 +65,7 @@ const userSchema = new Schema(
 
 userSchema.pre("save", function (next) {
   const user = this;
-  if (!user.isModified("passoword")) return next();
+  if (!user.isModified("password")) return next();
   bcrypt.hash(user.password, SALT_ROUNDS, function (err, hash) {
     if (err) return next(err);
     user.password = hash;
@@ -74,7 +74,13 @@ userSchema.pre("save", function (next) {
 });
 
 userSchema.methods.comparePassword = function (tryPassword, cb) {
-  bcrypt.compare(tryPassword, this.password, cb);
+  bcrypt.compare(tryPassword, this.password, function (err, isMatch) {
+    if (err) {
+      return cb(err);
+    } else {
+      cb(null, isMatch);
+    }
+  });
 };
 
 module.exports = mongoose.model("User", userSchema);
