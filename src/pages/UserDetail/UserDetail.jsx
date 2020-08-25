@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Students from "../../components/Students/Students";
+import Repos from "../../components/Repos/Repos";
 
 class UserDetail extends Component {
   state = {
