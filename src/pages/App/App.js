@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import { getGithubInfo } from "../../Services/github-api";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import EditProfilePage from "../EditProfilePage/EditProfilePage";
@@ -20,28 +19,7 @@ class App extends React.Component {
     super();
     this.state = {
       user: userService.getUser(),
-      person: null
-      // gUser: "",
-      // repos: "",
-      // repoName: "",
     };
-  }
-
-
-  async componentDidMount() {
-    const user = userService.getUser();
-    const rootURL = "https://api.github.com/";
-    const userURL = {
-      url: rootURL + 'users/' + user,
-      headers: {
-        "User-Agent": "hoseacodes",
-        "Authorization": "token " + process.env.GitHub_Token
-      }
-    }
-    const repsonse = await fetch(userURL);
-    const data = await repsonse.json();
-    console.log(data)
-    this.setState({ person: data.results[0] })
   }
 
   handleLogout = () => {
@@ -84,7 +62,7 @@ class App extends React.Component {
               <LoginPage {...props} handleSignUpOrLogin={this.handleSignUpOrLogin} />
             )}
           />
-          <Route path="/profile" render={() => <UserDetail user={this.state.user} studentData={this.state.name} />} />
+          <Route path="/profile" render={() => <UserDetail user={this.state.user} />} />
           <Route
             path="/allusers"
             render={() => <AllUsersPage user={this.state.user} />}

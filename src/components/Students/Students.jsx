@@ -1,30 +1,23 @@
-// import React, { Component } from 'react';
 
-// class Students extends Component {
-//     studentDiv = React.createRef();
-
-
-//     render() {
-//         return (
-//             <div ref={this.studentDiv} >
-//                 <form action="/" method="POST">
-//                     <input type="text" name='username'
-//                         class="form-contorl" placeholder="Enter a GitHub Username"></input>
-//                     <button class=" btn btn-sucess" type="submit">GO!</button>
-//                 </form>
-//             </div>
-//         );
-//     }
-// }
-
-
-
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Students = (props) => {
-    const { user } = props;
-    if (!user || user.length === 0) return <p>No users available</p>;
+    const { user } = props
+    if (!user || user.length === 0) return <p>No users available</p>
+    // const [info, setInfo] = useState([])
+    // const [isLoading, setIsLoading] = useState(true)
+
+    // useEffect(() => {
+    //     const fecthInfo = async () => {
+    //         const items = await axios(`https://api.github.com/users/hoseacodes`)
+
+    //         console.log(items.data)
+    //         setInfo(items.data)
+    //         setIsLoading(false)
+    //     }
+    //     fecthInfo();
+    // })
 
     return (
         <>
