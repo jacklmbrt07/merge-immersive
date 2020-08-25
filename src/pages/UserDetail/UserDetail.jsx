@@ -12,7 +12,6 @@ class UserDetail extends Component {
     console.log(process.env.DATABASE_URL)
 
     return (
-
       <>
         <NavBar />
         <section className="feed">
