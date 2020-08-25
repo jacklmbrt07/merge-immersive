@@ -3,44 +3,44 @@ import tokenService from "./tokenService";
 const BASE_URL = "/api/users/";
 
 function signup(user) {
-  return fetch(BASE_URL + "signup", {
-    method: "POST",
-    headers: new Headers({ "Content-Type": "application/json" }),
-    body: JSON.stringify(user),
-  })
-    .then((res) => {
-      if (res.ok) return res.json();
-      throw new Error("Email already taken!");
+    return fetch(BASE_URL + "signup", {
+        method: "POST",
+        headers: new Headers({ "Content-Type": "application/json" }),
+        body: JSON.stringify(user),
     })
-    .then(({ token }) => {
-      tokenService.setToken(token);
-    });
+        .then((res) => {
+            if (res.ok) return res.json();
+            throw new Error("Email already taken!");
+        })
+        .then(({ token }) => {
+            tokenService.setToken(token);
+        });
 }
 
 function getUser() {
-  return tokenService.getUserFromToken();
+    return tokenService.getUserFromToken();
 }
 
 function logout() {
-  tokenService.removeToken();
+    tokenService.removeToken();
 }
 
 function login(creds) {
-  return fetch(BASE_URL + "login", {
-    method: "POST",
-    headers: new Headers({ "Content-Type": "application/json" }),
-    body: JSON.stringify(creds),
-  })
-    .then((res) => {
-      if (res.ok) return res.json();
+    return fetch(BASE_URL + "login", {
+        method: "POST",
+        headers: new Headers({ "Content-Type": "application/json" }),
+        body: JSON.stringify(creds),
     })
-    .then(({ token }) => tokenService.setToken(token))
-  // .catch((err) => console.log("userService: ", err));
+        .then((res) => {
+            if (res.ok) return res.json();
+        })
+        .then(({ token }) => tokenService.setToken(token))
+    // .catch((err) => console.log("userService: ", err));
 }
 
 export default {
-  signup,
-  getUser,
-  logout,
-  login,
+    signup,
+    getUser,
+    logout,
+    login,
 };
