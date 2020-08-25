@@ -10,7 +10,9 @@ const Feed = (props) => {
         <div className="feed-container">
           <div className="profile-card2">
             <div className="card-header2">
-              <h1>Johnathan Blackburn</h1>
+              <span>
+                {/* <h2>{props.user.name}</h2> */}
+              </span>
               <p>SEI Immersive Student</p>
               <p>Class: 629</p>
             </div>
@@ -25,7 +27,7 @@ const Feed = (props) => {
             <div className="post-card">
               <div className="post-card__content">
                 <div className="post-card__info">
-                  <h1>Merge Immersive</h1>
+                  <h2>Merge Immersive</h2>
                   <p>This project was built with the MERN stack.</p>
                   <a href="https://github.com/Johnathanblackburncodes/merge-immersive">Github Link</a>
                 </div>
@@ -36,7 +38,7 @@ const Feed = (props) => {
             <div className="post-card">
               <div className="post-card__content">
                 <div className="post-card__info">
-                  <h1>Merge Immersive</h1>
+                  <h2>Merge Immersive</h2>
                   <p>This project was built with the MERN stack.</p>
                   <a href="https://github.com/Johnathanblackburncodes/merge-immersive">Github Link</a>
                 </div>
@@ -47,7 +49,7 @@ const Feed = (props) => {
             <div className="post-card">
               <div className="post-card__content">
                 <div className="post-card__info">
-                  <h1>Merge Immersive</h1>
+                  <h2>Merge Immersive</h2>
                   <p>This project was built with the MERN stack.</p>
                   <a href="https://github.com/Johnathanblackburncodes/merge-immersive">Github Link</a>
                 </div>
