@@ -11,7 +11,7 @@ const Feed = (props) => {
           <div className="profile-card2">
             <div className="card-header2">
               <span>
-                {/* <h2>{props.user.name}</h2> */}
+                <h2>Name</h2>
               </span>
               <p>SEI Immersive Student</p>
               <p>Class: 629</p>
