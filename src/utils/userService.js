@@ -34,7 +34,7 @@ function login(creds) {
     .then((res) => {
       if (res.ok) return res.json();
     })
-    .then(({ token }) => tokenService.setToken(token))
+    .then(({ token }) => tokenService.setToken(token));
   // .catch((err) => console.log("userService: ", err));
 }
 
