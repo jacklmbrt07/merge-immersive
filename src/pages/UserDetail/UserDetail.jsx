@@ -5,12 +5,11 @@ class UserDetail extends Component {
   state = {
     students: null,
   };
-  componentDidMount() { }
+  componentDidMount() {}
   render() {
-    console.log(process.env.DATABASE_URL)
+    console.log(process.env.DATABASE_URL);
 
     return (
-
       <>
         <NavBar />
         <div>

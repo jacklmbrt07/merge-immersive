@@ -59,6 +59,7 @@ const userSchema = new Schema(
     cohort: cohortSchema,
     password: String,
     bio: String,
+    githubUsername: String,
   },
   { timestamps: true }
 );
