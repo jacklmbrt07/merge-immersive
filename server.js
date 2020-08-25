@@ -11,7 +11,7 @@ require("dotenv").config();
 require("./config/database");
 require('./config/passport');
 
-const userRouter = require('./routes/users');
+const userRouter = require('./routes/api/users');
 
 app.use(logger("dev"));
 app.use(express.json());

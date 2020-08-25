@@ -59,14 +59,15 @@ class LoginPage extends Component {
           <div className="form-group">
             <div className="col-sm-12 text-center">
               <button className="btn btn-default">Log In</button>
+              <br />
               &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;
               <div>
                 <form action="/auth/github">
                   <button> <a href="/auth/github">Github Login</a></button>
-                  <button> <a href="/logout">Log Out</a> </button>
                 </form>
               </div>
+              <br />
               &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;
               <Link to="/">Cancel</Link>
