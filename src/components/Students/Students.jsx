@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import "../Students/Students.css"
 
 const Students = () => {
     const [name, setName] = useState('')
@@ -54,35 +55,75 @@ const Students = () => {
 
     return (
         <>
-            <h1>Hello {name}</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Github User" name="github user" onChange={handleSearch} />
-                <button content="search">Search</button>
-            </form>
-            <h3 className='list-head'> {userName}</h3>
-            <img src={img} alt={name} />
-            <p className='repo-description'>{bio}</p>
-            <div>
-                <p>Twitter Handle @{twitter || 'No Twitter Info.'}</p>
-            </div>
-            <div>
-                <a href={url}>Follow</a>
-                <p>Followers {followers}</p>
-                <p>Following {following}</p>
-                <p>Repos {repo}</p>
-            </div>
-            <div>
-                <p>{company || 'Independent'}</p>
-            </div>
-            <div>
-                <p>{location || 'GA Lounge Couch'}</p>
-                <a href={`https://${blog}`}>{blog}</a>
-            </div>
-            <div>
-                <iframe height="600" width="800" scrolling="no" title="fx." src="//codepen.io/ycw/embed/JqwbQw/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>
+            <section className="profile">
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder="Github User" name="github user" onChange={handleSearch} />
+                    <button content="search">Search</button>
+                </form>
+                <div className="container2">
+                    <div className="profile-top">
+                        <div className="profile-top-content">
+                            <img className="profile-pic" src={img} alt={name} />
+                            <div className="profile-name">
+                                <h1>{name}</h1>
+                                <h3 className='list-head'> {userName}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <p className='repo-description'>{bio}</p>
+                    <div>
+                        <p>Twitter Handle @{twitter || 'No Twitter Info.'}</p>
+                    </div>
+                    <div>
+                        <a href={url}>Follow</a>
+                        <p>Followers {followers}</p>
+                        <p>Following {following}</p>
+                        <p>Repos {repo}</p>
+                    </div>
+                    <div>
+                        <p>{company || 'Independent'}</p>
+                    </div>
+                    <div>
+                        <p>{location || 'GA Lounge Couch'}</p>
+                        <a href={`https://${blog}`}>{blog}</a>
+                    </div>
+                    <div>
+                        <iframe height="600" width="800" scrolling="no" title="fx." src="//codepen.io/ycw/embed/JqwbQw/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>
 
-            </div>
+                    </div>
+                </div>
+            </section>
         </>
+        // <>
+        //     <h1>Hello {name}</h1>
+        //     <form onSubmit={handleSubmit}>
+        //         <input type="text" placeholder="Github User" name="github user" onChange={handleSearch} />
+        //         <button content="search">Search</button>
+        //     </form>
+        //     <h3 className='list-head'> {userName}</h3>
+        //     <img className="profile-pic" src={img} alt={name} />
+        //     <p className='repo-description'>{bio}</p>
+        //     <div>
+        //         <p>Twitter Handle @{twitter || 'No Twitter Info.'}</p>
+        //     </div>
+        //     <div>
+        //         <a href={url}>Follow</a>
+        //         <p>Followers {followers}</p>
+        //         <p>Following {following}</p>
+        //         <p>Repos {repo}</p>
+        //     </div>
+        //     <div>
+        //         <p>{company || 'Independent'}</p>
+        //     </div>
+        //     <div>
+        //         <p>{location || 'GA Lounge Couch'}</p>
+        //         <a href={`https://${blog}`}>{blog}</a>
+        //     </div>
+        //     <div>
+        //         <iframe height="600" width="800" scrolling="no" title="fx." src="//codepen.io/ycw/embed/JqwbQw/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>
+
+        //     </div>
+        // </>
 
     );
 }

@@ -2,3 +2,9 @@
   max-height: 588px;
   width: 100%;
 }
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
