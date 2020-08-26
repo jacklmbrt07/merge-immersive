@@ -17,7 +17,11 @@ module.exports = {
 
 async function signup(req, res) {
   const user = new User(req.body);
+  const cohort = { discipline: req.body.discipline, classNo: req.body.classNo }
+  user.cohort = cohort
   try {
+    console.log('user: ', user)
+    console.log('req.body: ', req.body)
     await user.save();
     const token = createJWT(user);
     res.json({ token });
@@ -58,7 +62,7 @@ function createJWT(user) {
 // functions to change the users  profile
 
 function update(req, res) {
-  User.findById(req.params.id, function(err, student) {
+  User.findById(req.params.id, function (err, student) {
     console.log("current user: ", student);
     console.log("req.body: ", req.body);
     student.name = req.body.name;
