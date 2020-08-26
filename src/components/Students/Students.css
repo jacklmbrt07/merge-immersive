@@ -8,3 +8,8 @@
   padding: 0 5%;
   max-width: 1280px;
 }
+
+.iframe {
+  height: 650px;
+  width: 650px;
+}

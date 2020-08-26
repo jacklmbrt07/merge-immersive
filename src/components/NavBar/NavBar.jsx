@@ -35,9 +35,6 @@ const NavBar = (props) => {
         <NavMenu>
           <Link to="/signup">SIGN UP</Link>
           <Link to="/login">LOG IN</Link>
-          <NavItem icon={<CaretIcon />}>
-            <DropdownMenu></DropdownMenu>
-          </NavItem>
         </NavMenu>
       </div>
     );
@@ -99,6 +96,16 @@ function DropdownMenu() {
     );
   }
 
+  function DropdownItemEdit(props) {
+    return (
+      <Link to="/edit" className="menu-item">
+        <span className="icon-button">{props.leftIcon}</span>
+        {props.children}
+        <span className="icon-right">{props.rightIcon}</span>
+      </Link>
+    );
+  }
+
   return (
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
 
@@ -110,13 +117,15 @@ function DropdownMenu() {
         onEnter={calcHeight}>
         <div className="menu">
           <DropdownItemLink>My Profile</DropdownItemLink>
-
+          <DropdownItemEdit>Edit</DropdownItemEdit>
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
             goToMenu="settings">
             Settings
           </DropdownItem>
+
+
         </div>
       </CSSTransition>
 

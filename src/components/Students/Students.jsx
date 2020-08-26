@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import "../Students/Students.css"
+import "../Students/Student.css"
 
 const Students = () => {
     const [name, setName] = useState('')
@@ -93,7 +94,7 @@ const Students = () => {
                                     <div className="post-card__info">
                                         <h2>Code Pen</h2>
                                         <div>
-                                            <iframe
+                                            <iframe className="iframe"
                                                 scrolling="no" title="fx."
                                                 src="//codepen.io/ycw/embed/JqwbQw/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>
 
