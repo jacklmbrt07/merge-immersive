@@ -1,7 +1,7 @@
 export function getGithubInfo(props) {
     const rootURL = "https://api.github.com/";
     const userURL = {
-        url: rootURL + 'users/' + props.user,
+        url: rootURL + 'users/' + props.userName,
         headers: {
             "User-Agent": "hoseacodes",
             "Authorization": "token " + process.env.GitHub_Token
@@ -9,5 +9,6 @@ export function getGithubInfo(props) {
     }
     return fetch(userURL, { mode: 'cors' }).then(res => res.json())
 }
+
 
 

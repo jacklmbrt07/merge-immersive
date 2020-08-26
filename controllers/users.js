@@ -4,8 +4,11 @@ const jwt = require("jsonwebtoken");
 //   default: EditProfile,
 // } = require("../src/components/EditProfile/EditProfile");
 
-const SECRET = process.env.SECRET;
+// const {
+//   default: EditProfile,
+// } = require("../src/components/EditProfile/EditProfile");
 
+const SECRET = process.env.SECRET;
 module.exports = {
   signup,
   login,

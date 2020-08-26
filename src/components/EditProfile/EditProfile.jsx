@@ -47,6 +47,7 @@ class EditProfile extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+
   render() {
     return (
       <div className="EditPage-container">
