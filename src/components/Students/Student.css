@@ -10,6 +10,11 @@
     background-repeat: no-repeat;
     background-size: cover
   }
+
+  iframe {
+    height: 650px;
+    width: 650px;
+  }
   
   @import 'https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700';
   @import 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,700';
@@ -135,6 +140,7 @@
     box-shadow: 0 1px 5px rgba(0,0,0,0.5);
     transition: all 150ms ease-in-out;
     background: white;
+    height: fit-content;
   }
   
   .profile-card2:hover{
