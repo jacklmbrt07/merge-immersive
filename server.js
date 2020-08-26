@@ -40,7 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use('/api/user', userRouter);
+app.use('/api/users', userRouter);
 // app.use('/api/github', githubRouter);
 
 
