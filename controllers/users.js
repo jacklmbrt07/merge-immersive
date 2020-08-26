@@ -1,11 +1,15 @@
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
+// const {
+//   default: EditProfile,
+// } = require("../src/components/EditProfile/EditProfile");
 
 const SECRET = process.env.SECRET;
 
 module.exports = {
   signup,
   login,
+  update,
 };
 
 async function signup(req, res) {
@@ -31,7 +35,7 @@ async function login(req, res) {
     user.comparePassword(req.body.pw, (err, isMatch) => {
       if (isMatch) {
         const token = createJWT(user);
-        console.log("token: " + token)
+        console.log("token: " + token);
         res.json({ token });
       } else {
         console.log(err);
@@ -46,4 +50,15 @@ async function login(req, res) {
 
 function createJWT(user) {
   return jwt.sign({ user }, SECRET, { expiresIn: "24h" });
+}
+
+// functions to change the users  profile
+
+function update(req, res) {
+  User.findById(req.params.id, function(err, student) {
+    console.log("current user: ", student);
+    console.log("req.body: ", req.body);
+    student.name = req.body.name;
+    student.save();
+  });
 }

@@ -2,31 +2,32 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import userService from "../../utils/userService";
 
 //use this tutorial https://code.tutsplus.com/tutorials/creating-a-blogging-app-using-react-part-5-profile-page--cms-29131
 
 class EditProfile extends Component {
   constructor(props) {
     super(props);
-    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleNameChange = this.handleNameChange.bind(this);
     this.state = {
       //do not change users email as it is tied to OAuth
-        name: "",
+      name: "",
     };
   }
 
-          // phoneNum: "",
-        // location: "",
-        // favEmoji: "",
-        // projects: [],
-        // hobbies: [],
-        // publications: [],
-        // website: "",
-        // password: "",
-        // bio: "",
+  // phoneNum: "",
+  // location: "",
+  // favEmoji: "",
+  // projects: [],
+  // hobbies: [],
+  // publications: [],
+  // website: "",
+  // password: "",
+  // bio: "",
 
   handleNameChange(event) {
-    this.setState({[event.target.name]: event.target.value})
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   // formRef = React.createRef();\
@@ -42,12 +43,8 @@ class EditProfile extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
-    // if (!this.formRef.current.checkValidity()) return;
-    const user = {...this.props.user}
-    this.setState({
-      user
-    })
+    userService.updateUser(this.props.user, this.state);
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
@@ -61,13 +58,11 @@ class EditProfile extends Component {
               <Form.Control
                 type="text"
                 placeholder={this.props.user.name}
-                // value={this.props.user} what goes here?
+                value={this.state.name}
                 name="name"
                 onChange={this.handleNameChange}
               />
             </Form.Group>
-
-
             <Form.Row>
               <Form.Group>
                 <Form.Label>Phone #</Form.Label>
@@ -76,17 +71,6 @@ class EditProfile extends Component {
                   placeholder=""
                   value={this.state.name}
                   name="phoneNum"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-
-              <Form.Group>
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder=""
-                  value={this.state.name}
-                  name="password"
                   onChange={this.handleChange}
                 />
               </Form.Group>
