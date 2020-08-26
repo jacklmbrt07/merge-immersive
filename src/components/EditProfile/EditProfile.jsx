@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import userService from "../../utils/userService";
 
 //use this tutorial https://code.tutsplus.com/tutorials/creating-a-blogging-app-using-react-part-5-profile-page--cms-29131
 
@@ -42,13 +43,10 @@ class EditProfile extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
-    // if (!this.formRef.current.checkValidity()) return;
-    const user = { ...this.props.user }
-    this.setState({
-      user
-    })
+    const user = { ...this.props.user };
+    userService.updateUser(this.props.user, this.state);
   };
+
 
   render() {
     return (
