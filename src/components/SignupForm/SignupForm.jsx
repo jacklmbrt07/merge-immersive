@@ -25,7 +25,7 @@ class SignupForm extends Component {
     try {
       await userService.signup(this.state);
       this.props.handleSignUpOrLogin();
-      this.props.history.push("/");
+      this.props.history.push("/edit");
     } catch (err) {
       this.props.updateMessage(err.message);
     }

@@ -31,11 +31,6 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() });
   };
 
-  //update user
-  // handleUpdateUser = () => {
-  //   userService.updateUser();
-  //   this.setState({ user: '' })
-  // }
 
   render() {
     return (
@@ -74,8 +69,9 @@ class App extends React.Component {
             render={() => <AllUsersPage user={this.state.user} />}
           /> */}
           <Route
-            path="/edit" // :id?
-            render={() => <EditProfilePage user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
+            path="/edit"
+            render={({ history }) => <EditProfilePage history={history}
+              handleEditForm={this.handleEditForm} user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
           />
           <Error />
         </Switch>
