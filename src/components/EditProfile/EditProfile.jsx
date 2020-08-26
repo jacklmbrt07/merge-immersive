@@ -11,22 +11,22 @@ class EditProfile extends Component {
     this.handleNameChange = this.handleNameChange.bind(this)
     this.state = {
       //do not change users email as it is tied to OAuth
-        name: "",
+      name: "",
     };
   }
 
-          // phoneNum: "",
-        // location: "",
-        // favEmoji: "",
-        // projects: [],
-        // hobbies: [],
-        // publications: [],
-        // website: "",
-        // password: "",
-        // bio: "",
+  // phoneNum: "",
+  // location: "",
+  // favEmoji: "",
+  // projects: [],
+  // hobbies: [],
+  // publications: [],
+  // website: "",
+  // password: "",
+  // bio: "",
 
   handleNameChange(event) {
-    this.setState({[event.target.name]: event.target.value})
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   // formRef = React.createRef();\
@@ -44,7 +44,7 @@ class EditProfile extends Component {
     event.preventDefault();
 
     // if (!this.formRef.current.checkValidity()) return;
-    const user = {...this.props.user}
+    const user = { ...this.props.user }
     this.setState({
       user
     })

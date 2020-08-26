@@ -60,6 +60,7 @@ const userSchema = new Schema(
     password: String,
     bio: String,
     githubUsername: String,
+    githubId: String,
   },
   { timestamps: true }
 );
