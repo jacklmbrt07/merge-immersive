@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Students from "../../components/Students/Students";
+import Footer from "../../components/Footer/Footer"
 // import Repos from "../../components/Repos/Repos";
 
 class UserDetail extends Component {
@@ -15,9 +16,9 @@ class UserDetail extends Component {
       <>
         <NavBar />
         <div>
-          <p>Profile</p>
           <Students />
         </div>
+        <Footer />
       </>
     );
   }

@@ -12,6 +12,7 @@ require("./config/database");
 require('./config/passport');
 
 const userRouter = require('./routes/api/users');
+const githubRouter = require('./routes/api/github');
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -38,7 +39,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use('/', userRouter);
+app.use('/api/user', userRouter);
+app.use('/api/github', githubRouter);
 
 
 const port = process.env.PORT || 3001;

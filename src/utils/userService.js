@@ -1,5 +1,6 @@
 import tokenService from "./tokenService";
 
+
 const BASE_URL = "/api/users/";
 
 function signup(user) {
@@ -37,6 +38,8 @@ function login(creds) {
         .then(({ token }) => tokenService.setToken(token))
     // .catch((err) => console.log("userService: ", err));
 }
+
+
 
 export default {
     signup,

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import "./LoginPage.css";
 import userService from "../../utils/userService";
+import Github from '../../components/Github/Github'
 
 class LoginPage extends Component {
   state = {
@@ -63,9 +64,8 @@ class LoginPage extends Component {
               &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;
               <div>
-                <form action="/auth/github">
-                  <button> <a href="/auth/github">Github Login</a></button>
-                </form>
+
+
               </div>
               <br />
               &nbsp;&nbsp;&nbsp;
@@ -74,7 +74,11 @@ class LoginPage extends Component {
             </div>
           </div>
         </form>
-      </div>
+
+        {/* <Link to="/auth/github"> */}
+        <Github />
+        {/* </Link> */}
+      </div >
     );
   }
 }
