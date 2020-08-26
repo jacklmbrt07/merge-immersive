@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const githubCtrl = require('../../controllers/github');
 
-router.get('/userdetail', githubCtrl.index);
+router.get('/userdetail', githubCtrl.github);
 
 
 /*---------- Passport Routes ----------*/

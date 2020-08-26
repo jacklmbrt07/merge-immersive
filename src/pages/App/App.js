@@ -31,6 +31,12 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() });
   };
 
+  //update user
+  // handleUpdateUser = () => {
+  //   userService.updateUser();
+  //   this.setState({ user: '' })
+  // }
+
   render() {
     return (
       <>
@@ -69,7 +75,7 @@ class App extends React.Component {
           />
           <Route
             path="/edit" // :id?
-            render={() => <EditProfilePage user={this.state.user} />}
+            render={() => <EditProfilePage user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
           />
           <Error />
         </Switch>

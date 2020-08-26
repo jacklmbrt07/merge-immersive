@@ -4,6 +4,7 @@ const path = require("path");
 const logger = require("morgan");
 const session = require('express-session');
 const passport = require('passport');
+// const axios = require('axios');
 
 const app = express();
 
@@ -12,7 +13,7 @@ require("./config/database");
 require('./config/passport');
 
 const userRouter = require('./routes/api/users');
-const githubRouter = require('./routes/api/github');
+// const githubRouter = require('./routes/api/github');
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -40,7 +41,7 @@ app.use(passport.session());
 
 
 app.use('/api/user', userRouter);
-app.use('/api/github', githubRouter);
+// app.use('/api/github', githubRouter);
 
 
 const port = process.env.PORT || 3001;

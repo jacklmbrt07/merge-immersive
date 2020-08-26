@@ -3,25 +3,51 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
+//use this tutorial https://code.tutsplus.com/tutorials/creating-a-blogging-app-using-react-part-5-profile-page--cms-29131
+
 class EditProfile extends Component {
-  state = {
-    //do not change users email as it is tied to OAuth
-    name: "",
-    phoneNum: "",
-    location: "",
-    favEmoji: "",
-    projects: [],
-    hobbies: [],
-    publications: [],
-    website: "",
-    password: "",
-    bio: "",
-  };
-  
-  handleChange = (event) => {};
+  constructor(props) {
+    super(props);
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.state = {
+      //do not change users email as it is tied to OAuth
+      name: "",
+    };
+  }
+
+  // phoneNum: "",
+  // location: "",
+  // favEmoji: "",
+  // projects: [],
+  // hobbies: [],
+  // publications: [],
+  // website: "",
+  // password: "",
+  // bio: "",
+
+  handleNameChange(event) {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
+  // formRef = React.createRef();\
+
+  // handleChange = (event) => {
+  //   let clone = { ...this.state.user };
+  //   clone[event.target.name] = event.target.value;
+  //   this.setState({
+  //     user: clone,
+  //     // formInvalid: !this.formRef.current.checkValidity()
+  //   })
+  // };
+
   handleSubmit = (event) => {
     event.preventDefault();
-    // submit();
+
+    // if (!this.formRef.current.checkValidity()) return;
+    const user = { ...this.props.user }
+    this.setState({
+      user
+    })
   };
 
   render() {
@@ -34,12 +60,14 @@ class EditProfile extends Component {
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder=""
-                value={this.state.name}
+                placeholder={this.props.user.name}
+                // value={this.props.user} what goes here?
                 name="name"
-                onChange={this.handleChange}
+                onChange={this.handleNameChange}
               />
             </Form.Group>
+
+
             <Form.Row>
               <Form.Group>
                 <Form.Label>Phone #</Form.Label>
@@ -47,7 +75,7 @@ class EditProfile extends Component {
                   type="tel"
                   placeholder=""
                   value={this.state.name}
-                  name="phone"
+                  name="phoneNum"
                   onChange={this.handleChange}
                 />
               </Form.Group>
