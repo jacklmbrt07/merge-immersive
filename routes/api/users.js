@@ -7,6 +7,7 @@ router.post('/login', usersCtrl.login);
 router.post('/signup', usersCtrl.signup);
 
 
+
 /*---------- Protected Routes ----------*/
 
 

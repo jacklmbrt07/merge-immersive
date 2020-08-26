@@ -6,7 +6,18 @@ const SECRET = process.env.SECRET;
 module.exports = {
   signup,
   login,
+  index,
+
 };
+
+function index(req, res) {
+  User.find({}, function (err, student) {
+    res.render('HomePage', {
+      student,
+      user: req.user
+    });
+  });
+}
 
 async function signup(req, res) {
   const user = new User(req.body);
@@ -20,6 +31,8 @@ async function signup(req, res) {
     res.status(400).json(err);
   }
 }
+
+
 
 async function login(req, res) {
   try {
