@@ -69,10 +69,10 @@ class App extends React.Component {
             )}
           />
           <Route path="/profile" render={() => <UserDetail user={this.state.user} />} />
-          <Route
+          {/* <Route
             path="/allusers"
             render={() => <AllUsersPage user={this.state.user} />}
-          />
+          /> */}
           <Route
             path="/edit" // :id?
             render={() => <EditProfilePage user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}

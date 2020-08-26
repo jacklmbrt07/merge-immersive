@@ -13,7 +13,7 @@ const NavBar = (props) => {
     <div className="header">
       <div className="left-nav">
         <Link to="/">Home</Link>
-        <Link to="/allusers">Students</Link>
+        {/* <Link to="/allusers">Students</Link> */}
         <span>WELCOME, {props.user.name}</span>
       </div>
       <NavMenu>
@@ -30,7 +30,7 @@ const NavBar = (props) => {
       <div className="header">
         <div className="left-nav">
           <Link to="/">Home</Link>
-          <Link to="/allusers">Students</Link>
+          {/* <Link to="/allusers">Students</Link> */}
         </div>
         <NavMenu>
           <Link to="/signup">SIGN UP</Link>

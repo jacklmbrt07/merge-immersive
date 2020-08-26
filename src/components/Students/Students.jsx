@@ -60,7 +60,7 @@ const Students = () => {
                     <div className="feed-container">
                         <div className="profile-card2">
                             <div className="card-header2">
-                                <h1>Hello {name}</h1>
+                                <h2>Hello {name}</h2>
                                 <p>SEI Immersive Student</p>
                                 <p>Class: 629</p>
                             </div>
@@ -87,14 +87,11 @@ const Students = () => {
                                         <button content="search">Search</button>
                                     </form>
                                 </div>
-                                <div className="post-card__img" id="post-card__img">
-                                </div>
                             </div>
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
-                                        <h1>Code Pen</h1>
-                                        <p></p>
+                                        <h2>Code Pen</h2>
                                         <div>
                                             <iframe
                                                 scrolling="no" title="fx."
@@ -103,8 +100,6 @@ const Students = () => {
                                         </div>
                                         <a href="https://github.com/Johnathanblackburncodes/merge-immersive">Github Link</a>
                                     </div>
-                                </div>
-                                <div className="post-card__img" id="post-card__img">
                                 </div>
                             </div>
                             <div className="post-card">
@@ -116,8 +111,6 @@ const Students = () => {
                                         <p>Repos: {repo}</p>
                                         <a href={url}>Follow</a>
                                     </div>
-                                </div>
-                                <div className="post-card__img" id="post-card__img">
                                 </div>
                             </div>
                             <div className="post-card">
@@ -133,7 +126,14 @@ const Students = () => {
                                         <hr />
                                     </div>
                                 </div>
-                                <div className="post-card__img" id="post-card__img">
+                            </div>
+                            <div className="post-card">
+                                <div className="post-card__content">
+                                    <div className="post-card__info">
+                                        <h1>Hobbies</h1>
+                                        <p></p>
+
+                                    </div>
                                 </div>
                             </div>
                             <div className="post-card">
@@ -144,29 +144,13 @@ const Students = () => {
 
                                     </div>
                                 </div>
-                                <div className="post-card__img" id="post-card__img">
-                                </div>
                             </div>
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
                                         <h1>Hobbies</h1>
                                         <p></p>
-
                                     </div>
-                                </div>
-                                <div className="post-card__img" id="post-card__img">
-                                </div>
-                            </div>
-                            <div className="post-card">
-                                <div className="post-card__content">
-                                    <div className="post-card__info">
-                                        <h1>Hobbies</h1>
-                                        <p></p>
-
-                                    </div>
-                                </div>
-                                <div className="post-card__img" id="post-card__img">
                                 </div>
                             </div>
                         </div>
