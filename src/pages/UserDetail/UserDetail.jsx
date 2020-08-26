@@ -15,7 +15,7 @@ class UserDetail extends Component {
     return (
 
       <>
-        <NavBar />
+        <NavBar user={this.props.user} handleLogout={this.props.handleLogout} />
         <div>
           <Students />
         </div>
