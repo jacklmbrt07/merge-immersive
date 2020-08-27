@@ -24,7 +24,7 @@ async function signup(req, res) {
     console.log('req.body: ', req.body)
     await user.save();
     const token = createJWT(user);
-    res.json({ token });
+    // res.json({ token });
     console.log(token);
   } catch (err) {
     console.log(err);
@@ -62,11 +62,15 @@ function createJWT(user) {
 // functions to change the users  profile
 
 function update(req, res) {
-  User.findById(req.params.id, function (err, student) {
+  User.findById(req.params.id, function (err, student) { // need await??
     console.log("current user: ", student);
     console.log("req.body: ", req.body);
     student.name = req.body.name;
     student.phoneNum = req.body.phoneNum;
+    student.location = req.body.location;
+    student.website = req.body.website;
+    student.bio = req.body.bio;
     student.save();
+    console.log('after change: ', student)
   });
 }

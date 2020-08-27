@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import "./EditProfile.css"
 import userService from "../../utils/userService";
+import StateDrop from "./StateDrop";
 
 //use this tutorial https://code.tutsplus.com/tutorials/creating-a-blogging-app-using-react-part-5-profile-page--cms-29131
 
@@ -10,39 +12,29 @@ class EditProfile extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleLocation = this.handleLocation.bind(this);
     this.state = {
       //do not change users email as it is tied to OAuth
-      name: "",
-      // phoneNum: "",
-      // location: "",
-      // favEmoji: "",
-      // projects: [],
-      // hobbies: [],
-      // publications: [],
-      // website: "",
-      // bio: "",
-
+      name: this.props.user.name,
+      phoneNum: "",
+      location: {
+        city: "",
+        unitedState: "",
+      },
     };
   }
 
-
-
   handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+    this.setState({ [event.target.name]: event.target.value });
   }
 
-  // formRef = React.createRef();\
-
-  // handleChange = (event) => {
-  //   let clone = { ...this.state.user };
-  //   clone[event.target.name] = event.target.value;
-  //   this.setState({
-  //     user: clone,
-  //     // formInvalid: !this.formRef.current.checkValidity()
-  //   })
-  // };
+  handleLocation(event) {
+    let clone = { ...this.state.location };
+    clone[event.target.name] = event.target.value;
+    this.setState({
+      location: clone,
+    });
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -55,7 +47,6 @@ class EditProfile extends Component {
     // });
     console.log('after', event.target.name)
   };
-
 
   render() {
     return (
@@ -87,12 +78,19 @@ class EditProfile extends Component {
             </Form.Row>
             <Form.Group>
               <Form.Label>Location</Form.Label>
+              <Form.Text>City</Form.Text>
               <Form.Control
                 type="text"
-                placeholder=""
-                value={this.state.location}
-                name="location"
-                onChange={this.handleChange}
+                placeholder={this.props.user.location}
+                value={this.state.location.city}
+                name="city"
+                onChange={this.handleLocation}
+              />
+
+              <StateDrop
+                value={this.state.location.unitedState}
+                name="unitedState"
+                onChange={this.handleLocation}
               />
             </Form.Group>
             <Form.Group>
