@@ -14,7 +14,7 @@ const NavBar = (props) => {
       <div className="left-nav">
         <Link to="/">Home</Link>
         {/* <Link to="/allusers">Students</Link> */}
-        <span>WELCOME, {props.user.name}</span>
+        <span>WELCOME, {props.user.name.toUpperCase()}</span>
       </div>
       <NavMenu>
         <Link to="" onClick={props.handleLogout}>

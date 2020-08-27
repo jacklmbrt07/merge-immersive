@@ -17,11 +17,11 @@ module.exports = {
 
 async function signup(req, res) {
   const user = new User(req.body);
-  const cohort = { discipline: req.body.discipline, classNo: req.body.classNo }
-  user.cohort = cohort
+  const cohort = { discipline: req.body.discipline, classNo: req.body.classNo };
+  user.cohort = cohort;
   try {
-    console.log('user: ', user)
-    console.log('req.body: ', req.body)
+    console.log("user: ", user);
+    console.log("req.body: ", req.body);
     await user.save();
     const token = createJWT(user);
     // res.json({ token });
@@ -62,7 +62,8 @@ function createJWT(user) {
 // functions to change the users  profile
 
 function update(req, res) {
-  User.findById(req.params.id, function (err, student) { // need await??
+  User.findById(req.params.id, function (err, student) {
+    // need await??
     console.log("current user: ", student);
     console.log("req.body: ", req.body);
     student.name = req.body.name;
@@ -70,7 +71,10 @@ function update(req, res) {
     student.location = req.body.location;
     student.website = req.body.website;
     student.bio = req.body.bio;
-    student.save();
-    console.log('after change: ', student)
+    student.save((err, student) => {
+      if (err) console.log(err);
+      console.log("after change: ", student);
+      res.json(student);
+    });
   });
 }

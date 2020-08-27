@@ -33,15 +33,17 @@ const userSchema = new Schema(
     },
     phoneNum: {
       type: String,
-      // min: 1000000000,
-      // max: 9999999999,
-      validate: {
-        validator: (v) => {
-          return /d{10}/.test(v);
-        },
-        message: (props) => `${props.value} is not a valid phone number!`,
-      },
-      required: false,
+      minlength: 7,
+      maxlength: 10,
+      // // min: 1000000000,
+      // // max: 9999999999,
+      // validate: {
+      //   validator: (v) => {
+      //     return /d{10}/.test(v);
+      //   },
+      //   message: (props) => `${props.value} is not a valid phone number!`,
+      // },
+      // required: false,
     },
     avatar: String,
     email: {
