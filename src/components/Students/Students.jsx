@@ -1,5 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
+import "../Students/Students.css"
+import "../Students/Student.css"
 
 const Students = () => {
     const [name, setName] = useState('')
@@ -59,7 +61,7 @@ const Students = () => {
                     <div className="feed-container">
                         <div className="profile-card2">
                             <div className="card-header2">
-                                <h1>Hello {name}</h1>
+                                <h2>Hello {name}</h2>
                                 <p>SEI Immersive Student</p>
                                 <p>Class: 629</p>
                             </div>
@@ -86,24 +88,19 @@ const Students = () => {
                                         <button content="search">Search</button>
                                     </form>
                                 </div>
-                                <div className="post-card__img" id="post-card__img">
-                                </div>
                             </div>
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
-                                        <h1>Code Pen</h1>
-                                        <p></p>
+                                        <h2>Code Pen</h2>
                                         <div>
-                                            <iframe
+                                            <iframe className="iframe"
                                                 scrolling="no" title="fx."
                                                 src="//codepen.io/ycw/embed/JqwbQw/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>
 
                                         </div>
                                         <a href="https://github.com/Johnathanblackburncodes/merge-immersive">Github Link</a>
                                     </div>
-                                </div>
-                                <div className="post-card__img" id="post-card__img">
                                 </div>
                             </div>
                             <div className="post-card">
@@ -115,8 +112,6 @@ const Students = () => {
                                         <p>Repos: {repo}</p>
                                         <a href={url}>Follow</a>
                                     </div>
-                                </div>
-                                <div className="post-card__img" id="post-card__img">
                                 </div>
                             </div>
                             <div className="post-card">
@@ -132,7 +127,14 @@ const Students = () => {
                                         <hr />
                                     </div>
                                 </div>
-                                <div className="post-card__img" id="post-card__img">
+                            </div>
+                            <div className="post-card">
+                                <div className="post-card__content">
+                                    <div className="post-card__info">
+                                        <h1>Hobbies</h1>
+                                        <p></p>
+
+                                    </div>
                                 </div>
                             </div>
                             <div className="post-card">
@@ -143,29 +145,13 @@ const Students = () => {
 
                                     </div>
                                 </div>
-                                <div className="post-card__img" id="post-card__img">
-                                </div>
                             </div>
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
                                         <h1>Hobbies</h1>
                                         <p></p>
-
                                     </div>
-                                </div>
-                                <div className="post-card__img" id="post-card__img">
-                                </div>
-                            </div>
-                            <div className="post-card">
-                                <div className="post-card__content">
-                                    <div className="post-card__info">
-                                        <h1>Hobbies</h1>
-                                        <p></p>
-
-                                    </div>
-                                </div>
-                                <div className="post-card__img" id="post-card__img">
                                 </div>
                             </div>
                         </div>
@@ -174,6 +160,36 @@ const Students = () => {
             </section>
 
         </>
+        // <>
+        //     <h1>Hello {name}</h1>
+        //     <form onSubmit={handleSubmit}>
+        //         <input type="text" placeholder="Github User" name="github user" onChange={handleSearch} />
+        //         <button content="search">Search</button>
+        //     </form>
+        //     <h3 className='list-head'> {userName}</h3>
+        //     <img className="profile-pic" src={img} alt={name} />
+        //     <p className='repo-description'>{bio}</p>
+        //     <div>
+        //         <p>Twitter Handle @{twitter || 'No Twitter Info.'}</p>
+        //     </div>
+        //     <div>
+        //         <a href={url}>Follow</a>
+        //         <p>Followers {followers}</p>
+        //         <p>Following {following}</p>
+        //         <p>Repos {repo}</p>
+        //     </div>
+        //     <div>
+        //         <p>{company || 'Independent'}</p>
+        //     </div>
+        //     <div>
+        //         <p>{location || 'GA Lounge Couch'}</p>
+        //         <a href={`https://${blog}`}>{blog}</a>
+        //     </div>
+        //     <div>
+        //         <iframe height="600" width="800" scrolling="no" title="fx." src="//codepen.io/ycw/embed/JqwbQw/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>
+
+        //     </div>
+        // </>
 
     );
 }

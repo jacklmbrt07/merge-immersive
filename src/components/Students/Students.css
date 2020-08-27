@@ -1,0 +1,15 @@
+.profile-top-content {
+  display: flex;
+  align-items: center;
+}
+
+.container2 {
+  margin: 0 auto;
+  padding: 0 5%;
+  max-width: 1280px;
+}
+
+.iframe {
+  height: 650px;
+  width: 650px;
+}

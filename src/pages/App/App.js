@@ -63,14 +63,15 @@ class App extends React.Component {
               <LoginPage {...props} handleSignUpOrLogin={this.handleSignUpOrLogin} />
             )}
           />
-          <Route path="/profile" render={() => <UserDetail user={this.state.user} />} />
-          <Route
+          <Route path="/profile" render={(props) => <UserDetail {...props} handleLogout={this.handleLogout}
+            user={this.state.user} />} />
+          {/* <Route
             path="/allusers"
             render={() => <AllUsersPage user={this.state.user} />}
-          />
+          /> */}
           <Route
             path="/edit"
-            render={({ history }) => <EditProfilePage history={history}
+            render={(props) => <EditProfilePage {...props} handleLogout={this.handleLogout}
               handleEditForm={this.handleEditForm} user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
           />
           <Error />
