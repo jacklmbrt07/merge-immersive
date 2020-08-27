@@ -61,8 +61,10 @@ class EditProfile extends Component {
     return (
       <div className="EditPage-container">
         <Container className="shadow p-3 mb-5 bg-white rounded">
-          <Form onSubmit={this.handleSubmit}>
+          <div className="form-header">
             <h3>Edit Your Profile</h3>
+          </div>
+          <Form className="edit-form" onSubmit={this.handleSubmit}>
             <br />
             <Form.Group>
               <Form.File
@@ -84,18 +86,16 @@ class EditProfile extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Form.Row>
-              <Form.Group>
-                <Form.Label>Phone #</Form.Label>
-                <Form.Control
-                  type="tel"
-                  placeholder={this.props.user.phoneNum}
-                  value={this.state.phoneNum}
-                  name="phoneNum"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-            </Form.Row>
+            <Form.Group>
+              <Form.Label>Phone #</Form.Label>
+              <Form.Control
+                type="tel"
+                placeholder={this.props.user.phoneNum}
+                value={this.state.phoneNum}
+                name="phoneNum"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
             <Form.Group>
               <Form.Label>Location</Form.Label>
               <Form.Text>City</Form.Text>

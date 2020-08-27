@@ -38,3 +38,14 @@ a {
   color: var(--text-color);
   text-decoration: none;
 }
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.dark-text {
+  color: black;
+}
