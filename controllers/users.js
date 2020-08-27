@@ -58,10 +58,15 @@ function createJWT(user) {
 // functions to change the users  profile
 
 function update(req, res) {
-  User.findById(req.params.id, function(err, student) {
+  User.findById(req.params.id, function(err, student) { // need await??
     console.log("current user: ", student);
     console.log("req.body: ", req.body);
     student.name = req.body.name;
+    student.phoneNum = req.body.phoneNum;
+    student.location = req.body.location;
+    student.website = req.body.website;
+    student.bio = req.body.bio;
     student.save();
+    console.log('after change: ', student)
   });
 }
