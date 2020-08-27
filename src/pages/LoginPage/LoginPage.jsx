@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
 import userService from "../../utils/userService";
-import Github from '../../components/Github/Github'
+// import Github from '../../components/Github/Github'
 
 class LoginPage extends Component {
   state = {
@@ -31,7 +31,7 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="LoginPage">
-        <header className="header-footer">Log In</header>
+        <h3>Log In</h3>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <div className="col-sm-12">
@@ -70,13 +70,13 @@ class LoginPage extends Component {
               <br />
               &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;
-              <Link to="/">Cancel</Link>
+              <Link className="dark-text" to="/">Cancel</Link>
             </div>
           </div>
         </form>
 
         {/* <Link to="/auth/github"> */}
-        <Github />
+        {/* <Github /> */}
         {/* </Link> */}
       </div >
     );
