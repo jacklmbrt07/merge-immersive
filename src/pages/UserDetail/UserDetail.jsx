@@ -10,11 +10,12 @@ class UserDetail extends Component {
   };
   componentDidMount() { }
   render() {
-    console.log(process.env.DATABASE_URL);
+    console.log(process.env.DATABASE_URL)
 
     return (
+
       <>
-        <NavBar />
+        <NavBar user={this.props.user} handleLogout={this.props.handleLogout} />
         <div>
           <Students />
         </div>

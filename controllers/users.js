@@ -17,10 +17,14 @@ module.exports = {
 
 async function signup(req, res) {
   const user = new User(req.body);
+  const cohort = { discipline: req.body.discipline, classNo: req.body.classNo }
+  user.cohort = cohort
   try {
+    console.log('user: ', user)
+    console.log('req.body: ', req.body)
     await user.save();
     const token = createJWT(user);
-    res.json({ token });
+    // res.json({ token });
     console.log(token);
   } catch (err) {
     console.log(err);

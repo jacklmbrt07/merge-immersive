@@ -129,7 +129,7 @@ body {
 }
 
 .profile-card2{
-  width:320px;
+  width: 33%;
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 5px rgba(0,0,0,0.5);
@@ -149,9 +149,10 @@ body {
   color: #FAFAFA;
   padding-bottom: 115px;
   transition: all 150ms ease-in-out;
+  width: 100%;
 }
 
-.card-header2 h1 {
+.card-header2 h2 {
   padding-top: 20px;
 }
 

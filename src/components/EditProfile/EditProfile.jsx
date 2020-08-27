@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import "./EditProfile.css"
 import userService from "../../utils/userService";
 import StateDrop from "./StateDrop";
 

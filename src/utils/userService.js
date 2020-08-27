@@ -41,19 +41,31 @@ function login(creds) {
 
 function updateUser(user, info) {
     //findById?, what is userID
-  return fetch(BASE_URL + `${user._id}`, {
-    method: "PUT",
-    headers: new Headers({ "Content-Type": "application/json" }),
-    body: JSON.stringify(info),
-  }).then((res) => {
-    if (res.ok) return res.json();
-  });
+    return fetch(BASE_URL + `${user._id}`, {
+        method: "PUT",
+        headers: new Headers({ "Content-Type": "application/json" }),
+        body: JSON.stringify(info),
+    }).then((res) => {
+        if (res.ok) return res.json();
+    });
+}
+
+function githubUser(user, info) {
+    //findById?, what is userID
+    return fetch(BASE_URL + `${user._id}`, {
+        method: "PUT",
+        headers: new Headers({ "Content-Type": "application/json" }),
+        body: JSON.stringify(info),
+    }).then((res) => {
+        if (res.ok) return res.json();
+    });
 }
 
 export default {
-  signup,
-  getUser,
-  logout,
-  login,
-  updateUser,
+    signup,
+    getUser,
+    logout,
+    login,
+    updateUser,
+    githubUser
 };
