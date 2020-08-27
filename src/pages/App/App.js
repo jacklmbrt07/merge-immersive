@@ -79,18 +79,17 @@ class App extends React.Component {
             path="/allusers"
             render={() => <AllUsersPage user={this.state.user} />}
           /> */}
-            <Route
-              path="/allusers/:id"
-              render={() => <AllUsersPage user={this.state.user} />}
-            />
-            <Route
-              path="/edit"
-              render={(props) => <EditProfilePage {...props} handleLogout={this.handleLogout}
-                handleEditForm={this.handleEditForm} user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
-            />
-            <Error />
-          </Switch>
-        </>
+          <Route
+            path="/allusers/:id"
+            render={() => <AllUsersPage user={this.state.user} />}
+          />
+          <Route
+            path="/edit"
+            render={(props) => <EditProfilePage {...props} handleLogout={this.handleLogout}
+              user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
+          />
+          <Error />
+        </Switch>
       </>
       // </ThemeProvider>
     );
