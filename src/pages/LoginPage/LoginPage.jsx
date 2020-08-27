@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./LoginPage.css";
 import userService from "../../utils/userService";
 import Github from '../../components/Github/Github'

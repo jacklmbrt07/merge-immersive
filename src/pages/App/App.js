@@ -11,8 +11,9 @@ import Error from "../Error/Error";
 import AllUsersPage from "../AllUsersPage/AllUsersPage";
 import UserDetail from "../UserDetail/UserDetail"
 
-
-
+// import { ThemeProvider } from "styled-components";
+// import { GlobalStyles } from "./components/Globalstyle";
+// import { lightTheme, darkTheme } from "./components/Themes"
 
 class App extends React.Component {
   constructor() {
@@ -31,41 +32,50 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() });
   };
 
+  // handleTheme = () => {
+  //   const [theme, setTheme] = useState('light');
+  //   const themeToggler = () => {
+  //     theme === 'light' ? setTheme('dark') : setTheme('light')
+  //   }
+  // };
 
   render() {
     return (
+      // <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <HomePage
-                handleLogout={this.handleLogout}
-                user={this.state.user}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/signup"
-            render={({ history }) => (
-              <SignupPage
-                history={history}
-                handleSignUpOrLogin={this.handleSignUpOrLogin}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/login"
-            render={(props) => (
-              <LoginPage {...props} handleSignUpOrLogin={this.handleSignUpOrLogin} />
-            )}
-          />
-          <Route path="/profile" render={(props) => <UserDetail {...props} handleLogout={this.handleLogout}
-            user={this.state.user} />} />
-          {/* <Route
+        {/* <GlobalStyles /> */}
+        <>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <HomePage
+                  handleLogout={this.handleLogout}
+                  user={this.state.user}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/signup"
+              render={({ history }) => (
+                <SignupPage
+                  history={history}
+                  handleSignUpOrLogin={this.handleSignUpOrLogin}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/login"
+              render={(props) => (
+                <LoginPage {...props} handleSignUpOrLogin={this.handleSignUpOrLogin} />
+              )}
+            />
+            <Route path="/profile" render={(props) => <UserDetail {...props} handleLogout={this.handleLogout}
+              user={this.state.user} />} />
+            {/* <Route
             path="/allusers"
             render={() => <AllUsersPage user={this.state.user} />}
           /> */}
@@ -81,6 +91,7 @@ class App extends React.Component {
           <Error />
         </Switch>
       </>
+      // </ThemeProvider>
     );
   }
 }
