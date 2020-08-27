@@ -41,10 +41,9 @@ class App extends React.Component {
 
   render() {
     return (
-      // <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
+        {/* <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}> */}
         {/* <GlobalStyles /> */}
-        <>
           <Switch>
             <Route
               exact
@@ -90,8 +89,8 @@ class App extends React.Component {
           />
           <Error />
         </Switch>
+        {/* </ThemeProvider> */}
       </>
-      // </ThemeProvider>
     );
   }
 }
