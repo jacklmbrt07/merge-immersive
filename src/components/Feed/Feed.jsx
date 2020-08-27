@@ -14,8 +14,8 @@ const Feed = (props) => {
               <span>
                 <h2>{props.user.name}</h2>
               </span>
-              <p>SEI Immersive Student - static</p>
-              <p>Class: 629 - static</p>
+              <p>{props.user.cohort.discipline}</p>
+              <p>Class: {props.user.cohort.classNo} </p>
             </div>
             <img className="image2"
               src="https://avatars2.githubusercontent.com/u/25213510?s=460&u=ccd76bfb4349453011a6f276200dbcf087be71c2&v=4"
@@ -71,8 +71,8 @@ const Feed = (props) => {
                 <span>
                   <h2>Login or sign up!</h2>
                 </span>
-                <Link to="/signup">SIGN UP</Link>
-                <Link to="/login">LOG IN</Link>
+                <Link className="nav-link-right" to="/signup">SIGN UP</Link>
+                <Link className="nav-link-right" to="/login">LOG IN</Link>
               </div>
               <img className="image2"
                 src="https://avatars2.githubusercontent.com/u/25213510?s=460&u=ccd76bfb4349453011a6f276200dbcf087be71c2&v=4"
