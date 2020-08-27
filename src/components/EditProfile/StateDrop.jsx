@@ -1,10 +1,10 @@
-import React from 'react'
-
+import React from "react";
 
 const StateDrop = (props) => {
   return (
     <div>
-      <select {...props} >
+      <select {...props}>
+        <option value="">Select your State</option>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
