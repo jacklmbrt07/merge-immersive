@@ -13,12 +13,12 @@ const cohortSchema = new Schema(
     },
     classNo: {
       type: String,
-      validate: {
-        validator: (v) => {
-          return /d{3}/.test(v);
-        },
-        message: (props) => `${props.value} is not a valid class number`,
-      },
+      // validate: {
+      //   validator: (v) => {
+      //     return /d{3}/.test(v);
+      //   },
+      //   message: (props) => `${props.value} is not a valid class number`,
+      // },
       required: true,
     },
   },

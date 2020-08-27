@@ -10,7 +10,7 @@ class SignupForm extends Component {
     discipline: "",
     classNo: "",
     password: "",
-    passwordConf: "",
+    // passwordConf: "",
   };
 
   handleChange = (e) => {
@@ -102,7 +102,7 @@ class SignupForm extends Component {
               />
             </div>
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <div className="col-sm-12">
               <input
                 type="password"
@@ -113,7 +113,7 @@ class SignupForm extends Component {
                 onChange={this.handleChange}
               />
             </div>
-          </div>
+          </div> */}
           <div className="form-group">
             <div className="col-sm-12 text-center">
               {/* disabled={this.isFormInvalid()} */}
