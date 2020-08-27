@@ -21,8 +21,8 @@
   justify-content: center;
 }
 
-.navbar-nav-j a {
-  margin-right: 20px;
+.nav-link-right {
+  padding-right: 20px;
 }
 
 .icon-button {
