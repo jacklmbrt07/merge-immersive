@@ -4,50 +4,43 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import "./EditProfile.css"
 import userService from "../../utils/userService";
+import StateDrop from "./StateDrop";
 
 //use this tutorial https://code.tutsplus.com/tutorials/creating-a-blogging-app-using-react-part-5-profile-page--cms-29131
 
 class EditProfile extends Component {
   constructor(props) {
     super(props);
-    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleLocation = this.handleLocation.bind(this);
     this.state = {
       //do not change users email as it is tied to OAuth
-      name: "",
+      name: this.props.user.name,
+      phoneNum: "",
+      location: {
+        city: "",
+        unitedState: "",
+      },
     };
   }
 
-  // phoneNum: "",
-  // location: "",
-  // favEmoji: "",
-  // projects: [],
-  // hobbies: [],
-  // publications: [],
-  // website: "",
-  // password: "",
-  // bio: "",
-
-  handleNameChange(event) {
+  handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  // formRef = React.createRef();\
-
-  // handleChange = (event) => {
-  //   let clone = { ...this.state.user };
-  //   clone[event.target.name] = event.target.value;
-  //   this.setState({
-  //     user: clone,
-  //     // formInvalid: !this.formRef.current.checkValidity()
-  //   })
-  // };
+  handleLocation(event) {
+    let clone = { ...this.state.location };
+    clone[event.target.name] = event.target.value;
+    this.setState({
+      location: clone,
+    });
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
     userService.updateUser(this.props.user, this.state);
     this.setState({ [event.target.name]: event.target.value });
   };
-
 
   render() {
     return (
@@ -62,7 +55,7 @@ class EditProfile extends Component {
                 placeholder={this.props.user.name}
                 value={this.state.name}
                 name="name"
-                onChange={this.handleNameChange}
+                onChange={this.handleChange}
               />
             </Form.Group>
             <Form.Row>
@@ -70,8 +63,8 @@ class EditProfile extends Component {
                 <Form.Label>Phone #</Form.Label>
                 <Form.Control
                   type="tel"
-                  placeholder=""
-                  value={this.state.name}
+                  placeholder={this.props.user.phoneNum}
+                  value={this.state.phoneNum}
                   name="phoneNum"
                   onChange={this.handleChange}
                 />
@@ -79,12 +72,19 @@ class EditProfile extends Component {
             </Form.Row>
             <Form.Group>
               <Form.Label>Location</Form.Label>
+              <Form.Text>City</Form.Text>
               <Form.Control
                 type="text"
-                placeholder=""
-                value={this.state.name}
-                name="location"
-                onChange={this.handleChange}
+                placeholder={this.props.user.location}
+                value={this.state.location.city}
+                name="city"
+                onChange={this.handleLocation}
+              />
+
+              <StateDrop
+                value={this.state.location.unitedState}
+                name="unitedState"
+                onChange={this.handleLocation}
               />
             </Form.Group>
             <Form.Group>
@@ -92,7 +92,7 @@ class EditProfile extends Component {
               <Form.Control
                 type="text"
                 placeholder=""
-                value={this.state.name}
+                value={this.state.website}
                 name="website"
                 onChange={this.handleChange}
               />
@@ -102,8 +102,8 @@ class EditProfile extends Component {
               <Form.Control
                 as="textarea"
                 rows="3"
-                value={this.state.name}
-                name="website"
+                value={this.state.bio}
+                name="bio"
                 onChange={this.handleChange}
               />
             </Form.Group>
