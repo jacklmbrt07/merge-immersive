@@ -71,6 +71,10 @@ function update(req, res) {
     student.location = req.body.location;
     student.website = req.body.website;
     student.bio = req.body.bio;
+    student.avatar = req.body.avatar;
+    student.favEmoji = req.body.favEmoji;
+    student.projects = req.body.projects;
+    student.publications = req.body.publications;
     student.save((err, student) => {
       if (err) console.log(err);
       console.log("after change: ", student);

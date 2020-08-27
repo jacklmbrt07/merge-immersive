@@ -23,6 +23,13 @@ class EditProfile extends Component {
         city: "",
         unitedState: "",
       },
+      avatar: '',
+      favEmoji: '',
+      website: '',
+      bio: '',
+      projects: [],
+      hobbies: [],
+      publications: [],
     };
   }
 
@@ -56,6 +63,17 @@ class EditProfile extends Component {
         <Container className="shadow p-3 mb-5 bg-white rounded">
           <Form onSubmit={this.handleSubmit}>
             <h3>Edit Your Profile</h3>
+            <br />
+            <Form.Group>
+              <Form.File
+                id="exampleFormControlFile1"
+                label="Upload Profile Image"
+                value={this.state.avatar}
+                name="avatar"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <br />
             <Form.Group>
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -109,7 +127,9 @@ class EditProfile extends Component {
               <Form.Label>Favorite Emoji</Form.Label>
               <Emoji2
                 value={this.state.emoji2}
-                name="emoji2"
+                name="favEmoji"
+                onChange={this.handleChange}
+
               />
               {/* <Emoji
                 onChange={this.handleChange}
@@ -118,7 +138,7 @@ class EditProfile extends Component {
               /> */}
             </Form.Group>
             <Form.Group>
-              <Form.Label>Website</Form.Label>
+              <Form.Label>Website/Portfolio</Form.Label>
               <Form.Control
                 type="text"
                 placeholder=""

@@ -3,6 +3,7 @@ const path = require("path");
 // const favicon = require('serve-favicon');
 const logger = require("morgan");
 const session = require('express-session');
+const cloudinary = require('cloudinary');
 const passport = require('passport');
 const axios = require('axios');
 const cors = require('cors');
