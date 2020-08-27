@@ -71,7 +71,7 @@ class App extends React.Component {
           /> */}
           <Route
             path="/edit"
-            render={({ history }) => <EditProfilePage history={history}
+            render={(props) => <EditProfilePage {...props} handleLogout={this.handleLogout}
               handleEditForm={this.handleEditForm} user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
           />
           <Error />
