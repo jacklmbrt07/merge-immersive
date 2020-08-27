@@ -41,6 +41,7 @@ const userSchema = new Schema(
       },
       required: false,
     },
+    avatar: String,
     email: {
       type: String,
       required: true,
@@ -60,6 +61,10 @@ const userSchema = new Schema(
     password: String,
     bio: String,
     githubUsername: String,
+    twitter: String,
+    repo: String,
+    followers: String,
+    following: String,
     githubId: String,
   },
   { timestamps: true }

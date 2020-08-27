@@ -51,7 +51,6 @@ function updateUser(user, info) {
 }
 
 function githubUser(user, info) {
-    //findById?, what is userID
     return fetch(BASE_URL + `${user._id}`, {
         method: "PUT",
         headers: new Headers({ "Content-Type": "application/json" }),

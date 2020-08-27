@@ -9,25 +9,28 @@ import userService from "../../utils/userService";
 class EditProfile extends Component {
   constructor(props) {
     super(props);
-    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       //do not change users email as it is tied to OAuth
       name: "",
+      // phoneNum: "",
+      // location: "",
+      // favEmoji: "",
+      // projects: [],
+      // hobbies: [],
+      // publications: [],
+      // website: "",
+      // bio: "",
+
     };
   }
 
-  // phoneNum: "",
-  // location: "",
-  // favEmoji: "",
-  // projects: [],
-  // hobbies: [],
-  // publications: [],
-  // website: "",
-  // password: "",
-  // bio: "",
 
-  handleNameChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
   // formRef = React.createRef();\
@@ -44,7 +47,13 @@ class EditProfile extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     userService.updateUser(this.props.user, this.state);
-    this.setState({ [event.target.name]: event.target.value });
+    console.log('before', event.target.name)
+    console.log(this.props.user)
+
+    // this.setState({
+    //   [event.target.name]: event.target.value,
+    // });
+    console.log('after', event.target.name)
   };
 
 
@@ -61,7 +70,7 @@ class EditProfile extends Component {
                 placeholder={this.props.user.name}
                 value={this.state.name}
                 name="name"
-                onChange={this.handleNameChange}
+                onChange={this.handleChange}
               />
             </Form.Group>
             <Form.Row>
@@ -69,8 +78,8 @@ class EditProfile extends Component {
                 <Form.Label>Phone #</Form.Label>
                 <Form.Control
                   type="tel"
-                  placeholder=""
-                  value={this.state.name}
+                  placeholder={this.props.user.phoneNum}
+                  value={this.state.phoneNum}
                   name="phoneNum"
                   onChange={this.handleChange}
                 />
@@ -81,7 +90,7 @@ class EditProfile extends Component {
               <Form.Control
                 type="text"
                 placeholder=""
-                value={this.state.name}
+                value={this.state.location}
                 name="location"
                 onChange={this.handleChange}
               />
@@ -91,7 +100,7 @@ class EditProfile extends Component {
               <Form.Control
                 type="text"
                 placeholder=""
-                value={this.state.name}
+                value={this.state.website}
                 name="website"
                 onChange={this.handleChange}
               />
@@ -101,8 +110,8 @@ class EditProfile extends Component {
               <Form.Control
                 as="textarea"
                 rows="3"
-                value={this.state.name}
-                name="website"
+                value={this.state.bio}
+                name="bio"
                 onChange={this.handleChange}
               />
             </Form.Group>

@@ -66,6 +66,7 @@ function update(req, res) {
     console.log("current user: ", student);
     console.log("req.body: ", req.body);
     student.name = req.body.name;
+    student.phoneNum = req.body.phoneNum;
     student.save();
   });
 }

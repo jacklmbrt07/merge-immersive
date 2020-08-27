@@ -4,7 +4,8 @@ const path = require("path");
 const logger = require("morgan");
 const session = require('express-session');
 const passport = require('passport');
-// const axios = require('axios');
+const axios = require('axios');
+const cors = require('cors');
 
 const app = express();
 
@@ -16,6 +17,7 @@ const userRouter = require('./routes/api/users');
 // const githubRouter = require('./routes/api/github');
 
 app.use(logger("dev"));
+app.use(cors());
 app.use(express.json());
 
 
