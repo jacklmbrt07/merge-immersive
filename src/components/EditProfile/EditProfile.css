@@ -19,3 +19,18 @@
   background-size: cover
 }
 
+.emoji-picker-react {
+  height: 400px !important;
+  width: 100% !important;
+}
+
+.edit-form {
+  width: 90%;
+}
+
+.form-header {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+

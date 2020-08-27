@@ -33,7 +33,6 @@ const userSchema = new Schema(
     },
     phoneNum: {
       type: String,
-      minlength: 7,
       maxlength: 10,
       // // min: 1000000000,
       // // max: 9999999999,
@@ -57,9 +56,9 @@ const userSchema = new Schema(
       unitedState: String,
     },
     favEmoji: String, // this might need an install
-    projects: [{ type: String }],
-    hobbies: [{ type: String }],
-    publications: [{ type: String }],
+    projects: [String],
+    hobbies: [String],
+    publications: [String],
     website: String,
     cohort: cohortSchema,
     password: String,

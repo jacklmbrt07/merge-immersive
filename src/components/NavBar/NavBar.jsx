@@ -6,6 +6,8 @@ import { ReactComponent as CogIcon } from '../../icons/cog.svg';
 import { ReactComponent as ChevronIcon } from '../../icons/chevron.svg';
 import { ReactComponent as ArrowIcon } from '../../icons/arrow.svg';
 import { ReactComponent as BoltIcon } from '../../icons/bolt.svg';
+import { ReactComponent as EditIcon } from '../../icons/edit.svg'
+import { ReactComponent as UserIcon } from '../../icons/user.svg'
 import { CSSTransition } from 'react-transition-group';
 
 const NavBar = (props) => {
@@ -116,8 +118,8 @@ function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItemLink>My Profile</DropdownItemLink>
-          <DropdownItemEdit>Edit</DropdownItemEdit>
+          <DropdownItemLink leftIcon={<UserIcon />}>My Profile</DropdownItemLink>
+          <DropdownItemEdit leftIcon={<EditIcon />}>Edit Profile</DropdownItemEdit>
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}

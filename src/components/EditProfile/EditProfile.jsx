@@ -61,8 +61,10 @@ class EditProfile extends Component {
     return (
       <div className="EditPage-container">
         <Container className="shadow p-3 mb-5 bg-white rounded">
-          <Form onSubmit={this.handleSubmit}>
+          <div className="form-header">
             <h3>Edit Your Profile</h3>
+          </div>
+          <Form className="edit-form" onSubmit={this.handleSubmit}>
             <br />
             <Form.Group>
               <Form.File
@@ -84,24 +86,22 @@ class EditProfile extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Form.Row>
-              <Form.Group>
-                <Form.Label>Phone #</Form.Label>
-                <Form.Control
-                  type="tel"
-                  placeholder={this.props.user.phoneNum}
-                  value={this.state.phoneNum}
-                  name="phoneNum"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-            </Form.Row>
+            <Form.Group>
+              <Form.Label>Phone #</Form.Label>
+              <Form.Control
+                type="tel"
+                placeholder={this.props.user.phoneNum}
+                value={this.state.phoneNum}
+                name="phoneNum"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
             <Form.Group>
               <Form.Label>Location</Form.Label>
               <Form.Text>City</Form.Text>
               <Form.Control
                 type="text"
-                placeholder={this.props.user.location}
+                placeholder={this.props.user.location.city}
                 value={this.state.location.city}
                 name="city"
                 onChange={this.handleLocation}
@@ -114,28 +114,12 @@ class EditProfile extends Component {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Hobbies</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="What are your hobbies"
-                value={this.state.hobbies}
-                name="hobbies"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Form.Group>
               <Form.Label>Favorite Emoji</Form.Label>
               <Emoji2
                 value={this.state.emoji2}
                 name="favEmoji"
                 onChange={this.handleChange}
-
               />
-              {/* <Emoji
-                onChange={this.handleChange}
-                value={this.state.emoji}
-                name="emoji"
-              /> */}
             </Form.Group>
             <Form.Group>
               <Form.Label>Website/Portfolio</Form.Label>
@@ -149,6 +133,7 @@ class EditProfile extends Component {
             </Form.Group>
             <Form.Group>
               <Form.Label>Publications/Article Links</Form.Label>
+              <Form.Text><em>Please seperate by a comma ","</em></Form.Text>
               <Form.Control
                 type="text"
                 placeholder=""
@@ -159,6 +144,7 @@ class EditProfile extends Component {
             </Form.Group>
             <Form.Group>
               <Form.Label>Project Links</Form.Label>
+              <Form.Text><em>Please seperate by a comma ","</em></Form.Text>
               <Form.Control
                 type="text"
                 placeholder=""
@@ -167,6 +153,17 @@ class EditProfile extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
+              <Form.Group>
+                <Form.Label>Hobbies</Form.Label>
+                <Form.Text><em>Please seperate by a comma ","</em></Form.Text>
+                <Form.Control
+                  type="text"
+                  placeholder="What are your hobbies?"
+                  value={this.state.hobbies}
+                  name="hobbies"
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
             <Form.Group>
               <Form.Label>Bio</Form.Label>
               <Form.Control

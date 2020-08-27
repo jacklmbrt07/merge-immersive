@@ -73,13 +73,12 @@ function update(req, res) {
     student.bio = req.body.bio;
     student.avatar = req.body.avatar;
     student.favEmoji = req.body.favEmoji;
-    student.projects = req.body.projects.replace(/\s*,\s*/g, ",");
-    if (student.projects) student.projects = student.projects.split(",");
-    student.hobbies = req.body.hobbies.replace(/\s*,\s*/g, ",");
-    if (student.hobbies) student.hobbies = student.hobbies.split(",");
-    student.publications = req.body.publications.replace(/\s*,\s*/g, ",");
-    if (student.publications) student.publications = student.publications.split(",");
-    student.publications = req.body.publications;
+    student.projects =
+      req.body.projects === "" ? "" : req.body.projects.split(",");
+    student.hobbies =
+      req.body.hobbies === "" ? "" : req.body.hobbies.split(",");
+    student.publications =
+      req.body.publications === "" ? "" : req.body.publications.split(",");
     student.save((err, student) => {
       if (err) console.log(err);
       console.log("after change: ", student);
