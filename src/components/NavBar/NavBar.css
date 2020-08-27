@@ -121,6 +121,7 @@ a {
   padding: 1rem;
   overflow: hidden;
   transition: height var(--speed) ease;
+  min-height: 186px;
 }
 
 span {
