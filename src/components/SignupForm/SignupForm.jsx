@@ -72,7 +72,7 @@ class SignupForm extends Component {
               <input
                 type="githubUsername"
                 className="form-control"
-                placeholder="Github"
+                placeholder="Github Username"
                 value={this.state.githubUsername}
                 name="githubUsername"
                 onChange={this.handleChange}

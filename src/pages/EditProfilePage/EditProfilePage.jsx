@@ -10,7 +10,7 @@ class EditProfilePage extends Component {
       message: "", // Not sureif even necessary
     };
   }
-  
+
   render() {
     return (
       <React.Fragment>
