@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
 import userService from "../../utils/userService";
-import Github from '../../components/Github/Github'
+// import Github from '../../components/Github/Github'
 
 class LoginPage extends Component {
   state = {
