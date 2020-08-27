@@ -39,7 +39,13 @@ class EditProfile extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     userService.updateUser(this.props.user, this.state);
-    this.setState({ [event.target.name]: event.target.value });
+    console.log('before', event.target.name)
+    console.log(this.props.user)
+
+    // this.setState({
+    //   [event.target.name]: event.target.value,
+    // });
+    console.log('after', event.target.name)
   };
 
   render() {
