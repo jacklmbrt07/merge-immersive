@@ -75,13 +75,8 @@ class App extends React.Component {
           />
           <Route
             path="/edit"
-<<<<<<< HEAD
-            render={({ history }) => <EditProfilePage history={history}
-              user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
-=======
             render={(props) => <EditProfilePage {...props} handleLogout={this.handleLogout}
               handleEditForm={this.handleEditForm} user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
->>>>>>> 90910927a3e7a5542436b3d0983d0356230d4da5
           />
           <Error />
         </Switch>
