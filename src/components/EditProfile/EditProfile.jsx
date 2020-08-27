@@ -5,6 +5,8 @@ import Container from "react-bootstrap/Container";
 import "./EditProfile.css"
 import userService from "../../utils/userService";
 import StateDrop from "./StateDrop";
+import Emoji from "./Emoji";
+import Emoji2 from "./Emoji2";
 
 //use this tutorial https://code.tutsplus.com/tutorials/creating-a-blogging-app-using-react-part-5-profile-page--cms-29131
 
@@ -86,12 +88,34 @@ class EditProfile extends Component {
                 name="city"
                 onChange={this.handleLocation}
               />
-
+              <br />
               <StateDrop
                 value={this.state.location.unitedState}
                 name="unitedState"
                 onChange={this.handleLocation}
               />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Hobbies</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="What are your hobbies"
+                value={this.state.hobbies}
+                name="hobbies"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Favorite Emoji</Form.Label>
+              <Emoji2
+                value={this.state.emoji2}
+                name="emoji2"
+              />
+              {/* <Emoji
+                onChange={this.handleChange}
+                value={this.state.emoji}
+                name="emoji"
+              /> */}
             </Form.Group>
             <Form.Group>
               <Form.Label>Website</Form.Label>
@@ -100,6 +124,26 @@ class EditProfile extends Component {
                 placeholder=""
                 value={this.state.website}
                 name="website"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Publications/Article Links</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder=""
+                value={this.state.publications}
+                name="publications"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Project Links</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder=""
+                value={this.state.projects}
+                name="projects"
                 onChange={this.handleChange}
               />
             </Form.Group>
