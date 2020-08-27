@@ -7,6 +7,7 @@ class SignupForm extends Component {
   state = {
     name: "",
     email: "",
+    githubUsername: "",
     discipline: "",
     classNo: "",
     password: "",
@@ -25,7 +26,7 @@ class SignupForm extends Component {
     try {
       await userService.signup(this.state);
       this.props.handleSignUpOrLogin();
-      this.props.history.push("/edit");
+      this.props.history.push("/");
     } catch (err) {
       this.props.updateMessage(err.message);
     }
@@ -60,6 +61,18 @@ class SignupForm extends Component {
                 placeholder="Email"
                 value={this.state.email}
                 name="email"
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <input
+                type="githubUsername"
+                className="form-control"
+                placeholder="Github"
+                value={this.state.githubUsername}
+                name="githubUsername"
                 onChange={this.handleChange}
               />
             </div>

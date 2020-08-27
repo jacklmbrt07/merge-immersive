@@ -5,9 +5,12 @@ import Footer from "../../components/Footer/Footer"
 // import Repos from "../../components/Repos/Repos";
 
 class UserDetail extends Component {
-  state = {
-    students: null,
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      user: props.user
+    };
+  }
   componentDidMount() { }
   render() {
     console.log(process.env.DATABASE_URL)
@@ -17,7 +20,7 @@ class UserDetail extends Component {
       <>
         <NavBar user={this.props.user} handleLogout={this.props.handleLogout} />
         <div>
-          <Students />
+          <Students user={this.state.user} />
         </div>
         <Footer />
       </>

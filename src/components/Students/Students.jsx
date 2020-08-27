@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import "../Students/Students.css"
 import "../Students/Student.css"
 
-const Students = () => {
+const Students = (props) => {
     const [name, setName] = useState('')
     const [userName, setuserName] = useState('')
     const [img, setImg] = useState('')
@@ -19,10 +19,21 @@ const Students = () => {
     const [userInput, setUserInput] = useState('')
 
     useEffect(() => {
-        fetch(`https://api.github.com/users/hoseacodes`)
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
+            method: "PUT",
+            body: JSON.stringify({
+                id: props.user._id,
+                githubUsername: props.user.githubUsername
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                console.log(res)
+                res.json().then(data => {
+                    setData(data)
+                })
             })
     }, []);
 
@@ -46,7 +57,7 @@ const Students = () => {
         setUserInput(e.target.value)
     }
     const handleSubmit = () => {
-        fetch(`https://api.github.com/users/hoseacodes`)
+        fetch(`https://api.github.com/users/{}`)
             .then(res => res.json())
             .then(data => {
                 setData(data);
