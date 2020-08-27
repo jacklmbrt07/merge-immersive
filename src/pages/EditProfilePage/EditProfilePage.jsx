@@ -10,11 +10,11 @@ class EditProfilePage extends Component {
       message: "", // Not sureif even necessary
     };
   }
-  
+
   render() {
     return (
       <React.Fragment>
-        <NavBar user={this.props.user} />
+        <NavBar user={this.props.user} handleLogout={this.props.handleLogout} />
         <div className="EditProfilePage">
           <EditProfile {...this.props} name={this.props.name} />
         </div>
