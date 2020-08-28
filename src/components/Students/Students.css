@@ -37,3 +37,11 @@ article {
     border-radius: 50%;
     object-fit: cover;
   }
+
+  .profileinfo {
+    text-align: center;
+  }
+
+  .cardtitleinfo {
+    text-align: center;
+  }
