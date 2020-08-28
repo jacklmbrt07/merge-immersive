@@ -32,6 +32,7 @@ const Feed = (props) => {
                     <h2>{user.name}</h2>
                     <p>{user.cohort.discipline}</p>
                     <p>{user.cohort.classNo}</p>
+                    {/* <p>{user.location.city || 'GA Lounge Couch'}</p> */}
                     <a href={`https://github.com/${user.githubUsername}`} target="_blank" rel="noopener noreferrer">Github Link</a>
                   </div>
                 </div>
