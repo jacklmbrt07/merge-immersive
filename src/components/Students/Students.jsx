@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../Students/Students.css"
 import "../Students/Student.css"
 import TagsInput from '../Tags/TagsInput'
-import { ReactComponent as DefaultImage } from '../../images/user.png'
+// import { ReactComponent as DefaultImage } from '../../images/user.png'
 import { NavDropdown, ProgressBar } from 'react-bootstrap';
 
 import axios from 'axios'
