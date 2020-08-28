@@ -25,9 +25,9 @@ class EditProfile extends Component {
       favEmoji: '',
       website: '',
       bio: '',
-      projects: [],
-      hobbies: [],
-      publications: [],
+      projects: '',
+      hobbies: '',
+      publications: '',
     };
   }
 
