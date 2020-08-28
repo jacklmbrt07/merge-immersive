@@ -82,13 +82,13 @@ const Students = (props) => {
     const handleSubmit = async () => {
         const userName = props.user.githubUsername;
         const githubUrl = `https://api.github.com/users/${userName}`;
-        const response = await axios(githubUrl
-            //     ,{
-            //     headers: {
-            //         "User-Agent": "hoseacodes",
-            //         "Authorization": "token " + process.env.GitHub_Token
-            //     }
-            // }
+        const response = await axios.get(githubUrl
+            , {
+                headers: {
+                    "User-Agent": "hoseacodes",
+                    "Authorization": "token " + process.env.GitHub_Token
+                }
+            }
         ).catch(err => console.log(err));
         if (response) {
             setData(response.data);
@@ -98,19 +98,16 @@ const Students = (props) => {
                 axios(`${followers_url}/?per_page=100`)
             ]).then((results) => {
                 const [repos, followers] = results;
-                const status = 'fulfilled';
-                if (repos.status === status) {
-                    setRepos(repos.data);
-                }
-                if (followers.status === status) {
-                    setFollower(followers.data);
-                }
-            })
-                .catch((err) => console.log(err));
+                setRepos(repos.data);
+                setFollower(followers.data);
+            }).catch((err) => console.log(err));
         }
         checkRequests();
         setIsLoading(false);
     }
+
+
+
 
 
 
@@ -121,11 +118,7 @@ const Students = (props) => {
                     rate: { remaining },
                 } = data;
                 setRequests(remaining);
-                if (remaining === 0) {
-
-                }
-            })
-            .catch((error) => console.log(error));
+            }).catch((error) => console.log(error));
     };
 
     useEffect(checkRequests, [])
@@ -171,10 +164,10 @@ const Students = (props) => {
                         </div>
 
 
-                        
+
                         <div className="card-container">
 
-                        <div className="post-card">
+                            <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
                                         <h2>Profile Progress</h2>
@@ -193,16 +186,6 @@ const Students = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="post-card">
-                                <div className="post-card__content">
-                                    <div className="post-card__info">
-                                        <h2>User Bio</h2>
-                                        <p>{props.user.bio}</p>
-
-                                    </div>
-                                </div>
-                            </div>
-
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
