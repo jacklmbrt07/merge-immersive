@@ -9,3 +9,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.login-container {
+  width: 29%;
+}

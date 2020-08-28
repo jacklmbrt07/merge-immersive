@@ -121,10 +121,10 @@ a {
   padding: 1rem;
   overflow: hidden;
   transition: height var(--speed) ease;
-  min-height: 186px;
+  min-height: 134px;
 }
 
-span {
+.header-username {
   color: white
 }
 

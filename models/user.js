@@ -56,9 +56,9 @@ const userSchema = new Schema(
       unitedState: String,
     },
     favEmoji: String, // this might need an install
-    projects: [String],
-    hobbies: [String],
-    publications: [String],
+    projects: [{ type: String }],
+    hobbies: [{ type: String }],
+    publications: [{ type: String }],
     website: String,
     cohort: cohortSchema,
     password: String,
