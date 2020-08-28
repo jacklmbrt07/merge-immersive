@@ -124,7 +124,7 @@ const Students = (props) => {
                                 <p>Class: {props.user.cohort.classNo}</p>
                             </div>
                             <img className="image2"
-                                src={props.user.avatar || <DefaultImage />} alt={props.user.name} />
+                                src={`https://github.com/${props.user.githubUsername}.png`} alt={props.user.name} />
                             <div className="card-info2">
                                 <h5>Profile Info</h5>
                                 <br />
@@ -142,10 +142,10 @@ const Students = (props) => {
                         </div>
 
 
-                        
+
                         <div className="card-container">
 
-                        <div className="post-card">
+                            <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
                                         <h2>Profile Progress</h2>

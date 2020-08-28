@@ -29,7 +29,6 @@ class App extends React.Component {
     this.getAllUsers();
   };
 
-
   getAllUsers = () => {
     axios.get('/api/users')
       .then((response) => {

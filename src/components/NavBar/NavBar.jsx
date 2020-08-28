@@ -118,7 +118,7 @@ function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItemLink leftIcon={<UserIcon />}>My Profile</DropdownItemLink>
+          <DropdownItemLink leftIcon={`https://github.com/${this.props.user.githubUsername}.png`}>My Profile</DropdownItemLink>
           <DropdownItemEdit leftIcon={<EditIcon />}>Edit Profile</DropdownItemEdit>
           {/* <DropdownItem
             leftIcon={<CogIcon />}
