@@ -152,17 +152,17 @@ class EditProfile extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-              <Form.Group>
-                <Form.Label>Hobbies</Form.Label>
-                <Form.Text><em>Please seperate by a comma ","</em></Form.Text>
-                <Form.Control
-                  type="text"
-                  placeholder="What are your hobbies?"
-                  value={this.state.hobbies}
-                  name="hobbies"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
+            <Form.Group>
+              <Form.Label>Hobbies</Form.Label>
+              <Form.Text><em>Please seperate by a comma ","</em></Form.Text>
+              <Form.Control
+                type="text"
+                placeholder="What are your hobbies?"
+                value={this.state.hobbies}
+                name="hobbies"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
             <Form.Group>
               <Form.Label>Bio</Form.Label>
               <Form.Control

@@ -82,7 +82,7 @@
   
   .post-card__img {
     width: 40%;
-    background-image: url('/src/images/A-Team.jpg');
+    background-image: url('../../images/A-Team.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
