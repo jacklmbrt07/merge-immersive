@@ -17,7 +17,7 @@ const Feed = (props) => {
               <p>Class: {props.user.cohort.classNo} </p>
             </div>
             <img className="image2"
-              src="https://avatars2.githubusercontent.com/u/25213510?s=460&u=ccd76bfb4349453011a6f276200dbcf087be71c2&v=4"
+              src={`https://github.com/${props.user.githubUsername}.png`}
               alt="profile" />
             <div className="card-info2">
               {/* <p>Image static ^ Profile Info</p> */}
@@ -35,8 +35,7 @@ const Feed = (props) => {
                     <a href={`https://github.com/${user.githubUsername}`} target="_blank" rel="noopener noreferrer">Github Link</a>
                   </div>
                 </div>
-                <div className="post-card__img" id="post-card__img">
-                </div>
+                <div className="post-card__img" id="post-card__img" style={{ backgroundImage: `url(https://github.com/${user.githubUsername}.png)` }}></div>
               </div>
             ))}
 
@@ -56,9 +55,9 @@ const Feed = (props) => {
                 <Link className="nav-link-right" to="/signup">SIGN UP</Link>
                 <Link className="nav-link-right" to="/login">LOG IN</Link>
               </div>
-              <img className="image2"
+              {/* <img className="image2"
                 src="https://avatars2.githubusercontent.com/u/25213510?s=460&u=ccd76bfb4349453011a6f276200dbcf087be71c2&v=4"
-                alt="profile" />
+                alt="profile" /> */}
               <div className="card-info2">
                 <p>Sign in to see your profile info</p>
               </div>
@@ -75,8 +74,7 @@ const Feed = (props) => {
                       <a href={`https://github.com/${user.githubUsername}`} target="_blank" rel="noopener noreferrer">Github Link</a>
                     </div>
                   </div>
-                  <div className="post-card__img" id="post-card__img">
-                  </div>
+                  <div className="post-card__img" id="post-card__img" style={{ backgroundImage: `url(https://github.com/${user.githubUsername}.png)` }}></div>
                 </div>
               ))}
 
