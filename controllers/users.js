@@ -78,7 +78,6 @@ function update(req, res) {
       req.body.hobbies === "" ? "" : req.body.hobbies.split(",");
     student.publications =
       req.body.publications === "" ? "" : req.body.publications.split(",");
-
     student.save((err, student) => {
       if (err) console.log(err);
       console.log("after change: ", student);
