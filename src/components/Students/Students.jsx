@@ -105,11 +105,6 @@ const Students = (props) => {
         setIsLoading(false);
     }
 
-
-
-
-
-
     const checkRequests = () => {
         axios(`${rootUrl}/rate_limit`)
             .then((data) => {

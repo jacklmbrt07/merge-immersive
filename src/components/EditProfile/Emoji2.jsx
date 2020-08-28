@@ -13,7 +13,7 @@ const Emoji2 = () => {
             {chosenEmoji ? (
                 <span> {chosenEmoji.emoji}</span>
             ) : (
-                    <span> No empji Chosen</span>
+                    <span> No empjoi Chosen</span>
                 )}
             <Picker onEmojiClick={onEmojiClick}
             />
