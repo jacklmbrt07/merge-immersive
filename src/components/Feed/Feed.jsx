@@ -35,11 +35,7 @@ const Feed = (props) => {
                     <a href={`https://github.com/${user.githubUsername}`} target="_blank" rel="noopener noreferrer">Github Link</a>
                   </div>
                 </div>
-                <div>
-                  <img className=""
-                    src={`https://github.com/${user.githubUsername}.png`}
-                    alt="profile" />
-                </div>
+                <div className="post-card__img" id="post-card__img" style={{ backgroundImage: `url(https://github.com/${user.githubUsername}.png)` }}></div>
               </div>
             ))}
 
@@ -78,11 +74,7 @@ const Feed = (props) => {
                       <a href={`https://github.com/${user.githubUsername}`} target="_blank" rel="noopener noreferrer">Github Link</a>
                     </div>
                   </div>
-                  <div className="post-card__img" id="post-card__img">
-                    <img className="image2"
-                      src={`https://github.com/${props.user.githubUsername}.png`}
-                      alt="profile" />
-                  </div>
+                  <div className="post-card__img" id="post-card__img" style={{ backgroundImage: `url(https://github.com/${user.githubUsername}.png)` }}></div>
                 </div>
               ))}
 
