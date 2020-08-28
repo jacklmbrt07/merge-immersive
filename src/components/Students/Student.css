@@ -59,15 +59,6 @@
     font-weight:300;
   }
   
-  .post-card__info p {
-    margin-top: 1rem;
-    color: #333;
-    font-size: 0.7em;
-    font-weight: 300;
-    line-height: 1.3rem;
-    text-align: left;
-  }
-  
   .post-card__info a {
     color: #f44242;
     text-decoration: none;

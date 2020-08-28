@@ -62,8 +62,8 @@ body {
 .post-card__info p {
   margin-top: 1rem;
   color: #333;
-  font-size: 0.7em;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 500;
   line-height: 1.3rem;
   text-align: left;
 }
