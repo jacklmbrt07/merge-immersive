@@ -34,7 +34,7 @@ class App extends React.Component {
       .then((response) => {
         const data = response.data;
         this.setState({ users: data });
-        console.log('Data has been received!!');
+        // console.log('Data has been received!!');
       })
       .catch(() => {
         alert('Error retrieving data!!!');
