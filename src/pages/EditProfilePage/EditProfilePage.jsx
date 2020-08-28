@@ -16,7 +16,7 @@ class EditProfilePage extends Component {
       <React.Fragment>
         <NavBar user={this.props.user} />
         <div className="EditProfilePage">
-          <EditProfile {...this.props} name={this.props.name} />
+          <EditProfile {...this.props} user={this.props.user} name={this.props.name} />
         </div>
         <Footer />
       </React.Fragment>
