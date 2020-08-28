@@ -2,46 +2,51 @@ import React, { useState, useEffect } from 'react';
 import "../Students/Students.css"
 import "../Students/Student.css"
 import TagsInput from '../Tags/TagsInput'
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4efdd9c19251691c8f2b6831ed9aa4f004e5043c
 import { ReactComponent as DefaultImage } from '../../images/user.png'
+import axios from 'axios'
 
 
 const Students = (props) => {
+
+    const rootUrl = 'http://api.github.com';
+
     const [img, setImg] = useState('')
     const [url, setUrl] = useState('')
     const [bio, setBio] = useState('')
     const [twitter, setTwitter] = useState('')
-    const [company, setCompany] = useState('')
     const [blog, setBlog] = useState('')
     const [followers, setFollowers] = useState('')
     const [following, setFollowering] = useState('')
     const [repo, setRepo] = useState('')
 
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
-            method: "PUT",
-            body: JSON.stringify({
-                id: props.user._id,
-                githubUsername: props.user.githubUsername
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => {
-                console.log(res)
-                res.json().then(data => {
-                    setData(data)
-                })
-            })
-    }, []);
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
+    //         method: "PUT",
+    //         body: JSON.stringify({
+    //             id: props.user._id,
+    //             githubUsername: props.user.githubUsername
+    //         }),
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //         .then(res => {
+    //             console.log(res)
+    //             res.json().then(data => {
+    //                 setData(data)
+    //             })
+    //         })
+    // }, []);
 
-    const setData = ({ name, login, avatar_url, html_url, bio, twitter_username, company, location, blog, followers, following, public_repos }) => {
+    const setData = ({ avatar_url, html_url, bio, twitter_username, blog, followers, following, public_repos }) => {
         setImg(avatar_url);
         setUrl(html_url);
         setBio(bio);
         setTwitter(twitter_username);
-        setCompany(company);
         setBlog(blog);
         setFollowers(followers);
         setFollowering(following);
@@ -49,16 +54,38 @@ const Students = (props) => {
 
     }
 
-    const handleSubmit = () => {
-        fetch(`https://api.github.com/users/${props.user.githubUsername}`)
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
-                console.log(data)
-            })
+    const handleSubmit = async () => {
+        const userName = props.user.githubUsername;
+        const githubUrl = `https://api.github.com/users/${userName}`;
+        const response = await axios(githubUrl, {
+            headers: {
+                "User-Agent": "hoseacodes",
+                "Authorization": "token " + process.env.GitHub_Token
+            }
+        }).catch(err => console.log(err));
+        if (response) {
+            setData(response.data)
+        }
     }
 
+    const [loading, setIsLoading] = useState(true);
+    const [requests, setRequests] = useState(0);
 
+    const checkRequests = () => {
+        axios(`${rootUrl}/rate_limit`)
+            .then((data) => {
+                let {
+                    rate: { remaining },
+                } = data;
+                setRequests(remaining);
+                if (remaining === 0) {
+
+                }
+            })
+            .catch((error) => console.log(error));
+    };
+
+    useEffect(checkRequests, [])
 
     const selectedTags = tags => {
         console.log(tags);
@@ -110,7 +137,10 @@ const Students = (props) => {
                                         <h1> Github Stats</h1>
 
                                         <form onSubmit={handleSubmit}>
-                                            <button content="search">Generate</button>
+                                            {requests > 0 &&
+                                                <button content="search">Generate</button>
+                                            }
+                                            <h3>Requests Remaining: {requests} / 60</h3>
                                         </form>
                                         <p>Followers: {followers}</p>
                                         <p>Following: {following}</p>
