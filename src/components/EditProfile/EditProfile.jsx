@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import "./EditProfile.css"
 import userService from "../../utils/userService";
 import StateDrop from "./StateDrop";
+// import ImageUpload from "./ImageUpload"
 import Emoji2 from "./Emoji2";
 class EditProfile extends Component {
   constructor(props) {
@@ -49,6 +50,7 @@ class EditProfile extends Component {
     // });
     console.log('after', event.target.name)
   };
+
   render() {
     return (
       <div className="EditPage-container">
@@ -175,4 +177,5 @@ class EditProfile extends Component {
     );
   }
 }
+
 export default EditProfile;
