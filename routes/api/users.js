@@ -53,6 +53,16 @@ router.get('/profile', function (req, res) {
         })
 })
 
+router.get('/', (req, res) => {
+    User.find({})
+        .then((data) => {
+            console.log('Data: ', data);
+            res.json(data);
+        })
+        .catch((error) => {
+            console.log('error: ', daerrorta);
+        });
+});
 
 router.get('/profile/:id', function (req, res) {
     db.User.findOne(req.params.id)

@@ -9,7 +9,7 @@ const HomePage = (props) => {
   return (
     <>
       <NavBar user={props.user} handleLogout={props.handleLogout} />
-      <Feed user={props.user} />
+      <Feed user={props.user} users={props.users} />
       <Footer />
     </>
   );

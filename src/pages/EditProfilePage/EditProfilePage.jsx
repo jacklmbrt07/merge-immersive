@@ -14,7 +14,7 @@ class EditProfilePage extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar user={this.props.user} />
+        <NavBar user={this.props.user} handleLogout={this.props.handleLogout} />
         <div className="EditProfilePage">
           <EditProfile {...this.props} user={this.props.user} name={this.props.name} />
         </div>
