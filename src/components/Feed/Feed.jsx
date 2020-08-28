@@ -20,7 +20,7 @@ const Feed = (props) => {
               src="https://avatars2.githubusercontent.com/u/25213510?s=460&u=ccd76bfb4349453011a6f276200dbcf087be71c2&v=4"
               alt="profile" />
             <div className="card-info2">
-              <p>Image static ^ Profile Info</p>
+              {/* <p>Image static ^ Profile Info</p> */}
             </div>
           </div>
           <div className="card-container">
@@ -60,43 +60,26 @@ const Feed = (props) => {
                 src="https://avatars2.githubusercontent.com/u/25213510?s=460&u=ccd76bfb4349453011a6f276200dbcf087be71c2&v=4"
                 alt="profile" />
               <div className="card-info2">
-                <p>Profile Info</p>
+                <p>Sign in to see your profile info</p>
               </div>
             </div>
             <div className="card-container">
-              <div className="post-card">
-                <div className="post-card__content">
-                  <div className="post-card__info">
-                    <h2>Merge Immersive</h2>
-                    <p>This project was built with the MERN stack.</p>
-                    <a href="https://github.com/Johnathanblackburncodes/merge-immersive">Github Link</a>
+
+              {props.users.map((user, idx) => (
+                <div key={idx} className="post-card">
+                  <div className="post-card__content">
+                    <div className="post-card__info">
+                      <h2>{user.name}</h2>
+                      <p>{user.cohort.discipline}</p>
+                      <p>{user.cohort.classNo}</p>
+                      <a href={`https://github.com/${user.githubUsername}`} target="_blank" rel="noopener noreferrer">Github Link</a>
+                    </div>
+                  </div>
+                  <div className="post-card__img" id="post-card__img">
                   </div>
                 </div>
-                <div className="post-card__img" id="post-card__img">
-                </div>
-              </div>
-              <div className="post-card">
-                <div className="post-card__content">
-                  <div className="post-card__info">
-                    <h2>Merge Immersive</h2>
-                    <p>This project was built with the MERN stack.</p>
-                    <a href="https://github.com/Johnathanblackburncodes/merge-immersive">Github Link</a>
-                  </div>
-                </div>
-                <div className="post-card__img" id="post-card__img">
-                </div>
-              </div>
-              <div className="post-card">
-                <div className="post-card__content">
-                  <div className="post-card__info">
-                    <h2>Merge Immersive</h2>
-                    <p>This project was built with the MERN stack.</p>
-                    <a href="https://github.com/Johnathanblackburncodes/merge-immersive">Github Link</a>
-                  </div>
-                </div>
-                <div className="post-card__img" id="post-card__img">
-                </div>
-              </div>
+              ))}
+
             </div>
           </div>
         </div>
