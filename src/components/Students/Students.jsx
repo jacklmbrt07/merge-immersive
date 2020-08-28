@@ -83,9 +83,14 @@ const Students = (props) => {
 
     const handleSubmit = () => {
         const githubUserURL = `https://api.github.com/users/${props.user.githubUsername}`;
-        axios.get(githubUserURL).then((res) => {
-            setData(res.data);
-        });
+        axios.get(githubUserURL)
+            .then((response) => {
+                const data = response.data;
+                this.setData(data);
+            })
+            .catch(() => {
+                alert('Error with github retrieving data!!!');
+            });
     }
 
     // const handleSubmit = async () => {
@@ -199,8 +204,6 @@ const Students = (props) => {
                                         <hr />
                                         <form onSubmit={handleSubmit}>
                                             <button content="search">Generate</button>
-
-                                            {/* <h3>Requests Remaining: {requests} / 60</h3> */}
                                         </form>
                                         <p>Followers: {followers}</p>
                                         <p>Following: {following}</p>
