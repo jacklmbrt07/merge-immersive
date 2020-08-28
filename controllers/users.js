@@ -63,7 +63,6 @@ function createJWT(user) {
 
 function update(req, res) {
   User.findById(req.params.id, function (err, student) {
-    // need await??
     console.log("current user: ", student);
     console.log("req.body: ", req.body);
     student.name = req.body.name;
@@ -73,7 +72,6 @@ function update(req, res) {
     student.bio = req.body.bio;
     student.avatar = req.body.avatar;
     student.favEmoji = req.body.favEmoji;
-
     student.projects =
       req.body.projects === "" ? "" : req.body.projects.split(",");
     student.hobbies =
