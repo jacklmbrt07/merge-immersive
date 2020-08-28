@@ -32,7 +32,7 @@ const Feed = (props) => {
                     <h2>{user.name}</h2>
                     <p>{user.cohort.discipline}</p>
                     <p>{user.cohort.classNo}</p>
-                    <a href={`https://github.com/${user.githubUsername}`} target="_blank">Github Link</a>
+                    <a href={`https://github.com/${user.githubUsername}`} target="_blank" rel="noopener noreferrer">Github Link</a>
                   </div>
                 </div>
                 <div className="post-card__img" id="post-card__img">
