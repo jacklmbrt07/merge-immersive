@@ -165,7 +165,7 @@ const Students = (props) => {
 
                             <div className="post-card">
                                 <div className="post-card__content">
-                                    <div className="post-card__info">
+                                    <div className="post-card__info2">
                                         <h2 className='cardtitleinfo'>Profile Progress</h2>
                                         <hr />
                                         <ProgressBar now={80} label={`${80}%`} />
@@ -176,7 +176,7 @@ const Students = (props) => {
 
                             <div className="post-card">
                                 <div className="post-card__content">
-                                    <div className="post-card__info">
+                                    <div className="post-card__info2">
                                         <h2 className='cardtitleinfo'>User Bio</h2>
                                         <hr />
                                         <p>{props.user.bio}</p>
@@ -186,7 +186,7 @@ const Students = (props) => {
                             </div>
                             <div className="post-card">
                                 <div className="post-card__content">
-                                    <div className="post-card__info">
+                                    <div className="post-card__info2">
                                         <h2 className='cardtitleinfo'>Github Stats</h2>
                                         <hr />
                                         <form onSubmit={handleSubmit}>
@@ -240,7 +240,7 @@ const Students = (props) => {
                             </div> */}
                             <div className="post-card">
                                 <div className="post-card__content">
-                                    <div className="post-card__info">
+                                    <div className="post-card__info2">
                                         <h2 className='cardtitleinfo'> Social</h2>
                                         <hr />
                                         <p>Favorite Emoji: <span role="img" alt="aria-label">{props.user.faveEmoji || 'This is our favorite Emoji 🤠'}</span></p>
@@ -252,7 +252,7 @@ const Students = (props) => {
                             </div>
                             <div className="post-card">
                                 <div className="post-card__content">
-                                    <div className="post-card__info">
+                                    <div className="post-card__info2">
                                         <h2 className='cardtitleinfo'>Hobbies</h2>
                                         <hr />
                                         <p>{props.user.hobbies}</p>
@@ -264,7 +264,7 @@ const Students = (props) => {
                             </div>
                             <div className="post-card">
                                 <div className="post-card__content">
-                                    <div className="post-card__info">
+                                    <div className="post-card__info2">
                                         <h2 className='cardtitleinfo'>Publications</h2>
                                         <hr />
                                         {props.user.publications.map((publication, index) => (
@@ -289,7 +289,7 @@ const Students = (props) => {
                             </div> */}
                             <div className="post-card">
                                 <div className="post-card__content">
-                                    <div className="post-card__info">
+                                    <div className="post-card__info2">
                                         <h2 className='cardtitleinfo'>Projects</h2>
                                         <hr />
                                         {props.user.projects.map((project, index) => (
