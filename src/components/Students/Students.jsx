@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import "../Students/Students.css"
 import "../Students/Student.css"
 import TagsInput from '../Tags/TagsInput'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4efdd9c19251691c8f2b6831ed9aa4f004e5043c
 import { ReactComponent as DefaultImage } from '../../images/user.png'
 import axios from 'axios'
 
