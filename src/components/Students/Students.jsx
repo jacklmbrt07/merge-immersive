@@ -129,7 +129,7 @@ const Students = (props) => {
                                 <div className="post-card__content">
                                     <div className="post-card__info">
                                         <h1>Social</h1>
-                                        <p>Favorite Emoji: <span role="img" alt="aria-label">🥴</span></p>
+                                        <p>Favorite Emoji: 🥴</p>
                                         <hr />
                                         <h6>Social Media</h6>
                                         <hr />
