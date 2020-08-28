@@ -197,13 +197,13 @@ const Students = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="post-card">
+                            {/* <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info2">
                                         <h2 className='cardtitleinfo'>Github Stats</h2>
                                         <hr />
-                                        <form onSubmit={handleSubmit}>
-                                            <button content="search">Generate</button>
+                                        <form className='cardtitleinfo' onSubmit={handleSubmit}>
+                                            <button content="search">Generate Stats</button>
                                         </form>
                                         <p>Followers: {followers}</p>
                                         <p>Following: {following}</p>
@@ -211,7 +211,7 @@ const Students = (props) => {
                                         <a className='cardtitleinfo' href={url}>Follow</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             {/* <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
@@ -266,7 +266,7 @@ const Students = (props) => {
                                     <div className="post-card__info2">
                                         <h2 className='cardtitleinfo'>Hobbies</h2>
                                         <hr />
-                                        <p>{props.user.hobbies}</p>
+                                        {/* <p>{props.user.hobbies}</p> */}
                                         <TagsInput selectedTags={selectedTags} user={props.user} />
                                         <hr />
 
