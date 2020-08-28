@@ -6,8 +6,6 @@ import "./EditProfile.css"
 import userService from "../../utils/userService";
 import StateDrop from "./StateDrop";
 import Emoji2 from "./Emoji2";
-
-
 class EditProfile extends Component {
   constructor(props) {
     super(props);
@@ -30,11 +28,9 @@ class EditProfile extends Component {
       publications: '',
     };
   }
-
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-
   handleLocation(event) {
     let clone = { ...this.state.location };
     clone[event.target.name] = event.target.value;
@@ -42,20 +38,17 @@ class EditProfile extends Component {
       location: clone,
     });
   }
-
   handleSubmit = (event) => {
     event.preventDefault();
     userService.updateUser(this.props.user, this.state);
     this.props.history.push("/profile");
     console.log('before', event.target.name)
     console.log(this.props.user)
-
     // this.setState({
     //   [event.target.name]: event.target.value,
     // });
     console.log('after', event.target.name)
   };
-
   render() {
     return (
       <div className="EditPage-container">
@@ -89,7 +82,7 @@ class EditProfile extends Component {
               <Form.Label>Phone #</Form.Label>
               <Form.Control
                 type="tel"
-                placeholder={this.props.user.phoneNum}
+                placeholder='Enter Phone Number'
                 value={this.state.phoneNum}
                 name="phoneNum"
                 onChange={this.handleChange}
@@ -100,7 +93,7 @@ class EditProfile extends Component {
               <Form.Text>City</Form.Text>
               <Form.Control
                 type="text"
-                placeholder={this.props.user.location.city}
+                placeholder='Enter City'
                 value={this.state.location.city}
                 name="city"
                 onChange={this.handleLocation}
@@ -121,10 +114,10 @@ class EditProfile extends Component {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Website/Portfolio</Form.Label>
+              <Form.Label>Portfolio</Form.Label>
               <Form.Control
                 type="text"
-                placeholder=""
+                placeholder="Enter Portfolio"
                 value={this.state.website}
                 name="website"
                 onChange={this.handleChange}
@@ -135,7 +128,7 @@ class EditProfile extends Component {
               <Form.Text><em>Please seperate by a comma ","</em></Form.Text>
               <Form.Control
                 type="text"
-                placeholder=""
+                placeholder="Enter an Publications or Articles"
                 value={this.state.publications}
                 name="publications"
                 onChange={this.handleChange}
@@ -146,23 +139,23 @@ class EditProfile extends Component {
               <Form.Text><em>Please seperate by a comma ","</em></Form.Text>
               <Form.Control
                 type="text"
-                placeholder=""
+                placeholder="Enter Projects Links"
                 value={this.state.projects}
                 name="projects"
                 onChange={this.handleChange}
               />
             </Form.Group>
-              <Form.Group>
-                <Form.Label>Hobbies</Form.Label>
-                <Form.Text><em>Please seperate by a comma ","</em></Form.Text>
-                <Form.Control
-                  type="text"
-                  placeholder="What are your hobbies?"
-                  value={this.state.hobbies}
-                  name="hobbies"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
+            <Form.Group>
+              <Form.Label>Hobbies</Form.Label>
+              <Form.Text><em>Please seperate by a comma ","</em></Form.Text>
+              <Form.Control
+                type="text"
+                placeholder="What are your hobbies?"
+                value={this.state.hobbies}
+                name="hobbies"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
             <Form.Group>
               <Form.Label>Bio</Form.Label>
               <Form.Control
@@ -182,5 +175,4 @@ class EditProfile extends Component {
     );
   }
 }
-
 export default EditProfile;

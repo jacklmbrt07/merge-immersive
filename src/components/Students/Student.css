@@ -82,7 +82,7 @@
   
   .post-card__img {
     width: 40%;
-    background-image: url('/src/images/A-Team.jpg');
+    background-image: url('../../images/A-Team.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -248,4 +248,12 @@
     justify-content: space-around;
     width: 100%;
   }
-  
+  .post-card12 {
+    background-color: white;
+    width: 1000px;
+    height: 1000px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.5);  
+    display: flex;
+    border-radius: 0.3rem;
+    margin: 10px;
+  }

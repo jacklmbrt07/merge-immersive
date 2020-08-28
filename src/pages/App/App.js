@@ -8,7 +8,10 @@ import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
 import Error from "../Error/Error";
 import AllUsersPage from "../AllUsersPage/AllUsersPage";
-import UserDetail from "../UserDetail/UserDetail";
+import UserDetail from "../UserDetail/UserDetail"
+import axios from "axios";
+
+// import axios from "axios"
 // import { ThemeProvider } from "styled-components";
 // import { GlobalStyles } from "./components/Globalstyle";
 // import { lightTheme, darkTheme } from "./components/Themes"
@@ -18,8 +21,25 @@ class App extends React.Component {
     super();
     this.state = {
       user: userService.getUser(),
-      allUsers: [],
+      users: [],
     };
+  }
+
+  componentDidMount = () => {
+    this.getAllUsers();
+  };
+
+
+  getAllUsers = () => {
+    axios.get('/api/users')
+      .then((response) => {
+        const data = response.data;
+        this.setState({ users: data });
+        // console.log('Data has been received!!');
+      })
+      .catch(() => {
+        alert('Error retrieving data!!!');
+      });
   }
 
   handleLogout = () => {
@@ -59,6 +79,7 @@ class App extends React.Component {
               <HomePage
                 handleLogout={this.handleLogout}
                 user={this.state.user}
+                users={this.state.users}
               />
             )}
           />
