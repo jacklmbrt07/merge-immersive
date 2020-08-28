@@ -32,6 +32,12 @@ async function signup(req, res) {
   }
 }
 
+// function index(req, res) {
+//   User.find({}, function (err, user) {
+//     res.status(200).json(user)
+//   })
+// }
+
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email });

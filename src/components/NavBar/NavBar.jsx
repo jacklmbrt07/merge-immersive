@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { ReactComponent as CaretIcon } from '../../icons/caret.svg';
-import { ReactComponent as CogIcon } from '../../icons/cog.svg';
-import { ReactComponent as ChevronIcon } from '../../icons/chevron.svg';
+// import { ReactComponent as CogIcon } from '../../icons/cog.svg';
+// import { ReactComponent as ChevronIcon } from '../../icons/chevron.svg';
 import { ReactComponent as ArrowIcon } from '../../icons/arrow.svg';
 import { ReactComponent as BoltIcon } from '../../icons/bolt.svg';
 import { ReactComponent as EditIcon } from '../../icons/edit.svg'
@@ -16,7 +16,7 @@ const NavBar = (props) => {
       <div className="left-nav">
         <Link to="/">Home</Link>
         {/* <Link to="/allusers">Students</Link> */}
-        <span>WELCOME, {props.user.name.toUpperCase()}</span>
+        <span className="header-username">WELCOME, {props.user.name.toUpperCase()}</span>
       </div>
       <NavMenu>
         <Link className="nav-link-right" to="" onClick={props.handleLogout}>
@@ -120,12 +120,12 @@ function DropdownMenu() {
         <div className="menu">
           <DropdownItemLink leftIcon={<UserIcon />}>My Profile</DropdownItemLink>
           <DropdownItemEdit leftIcon={<EditIcon />}>Edit Profile</DropdownItemEdit>
-          <DropdownItem
+          {/* <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
             goToMenu="settings">
             Settings
-          </DropdownItem>
+          </DropdownItem> */}
 
 
         </div>

@@ -3,6 +3,9 @@ import "../Students/Students.css"
 import "../Students/Student.css"
 import TagsInput from '../Tags/TagsInput'
 
+import { ReactComponent as DefaultImage } from '../../images/user.png'
+
+
 const Students = (props) => {
     const [img, setImg] = useState('')
     const [url, setUrl] = useState('')
@@ -74,7 +77,7 @@ const Students = (props) => {
                                 <p>Class: {props.user.cohort.classNo}</p>
                             </div>
                             <img className="image2"
-                                src={props.user.avatar || <defaultImage />} alt={props.user.name} />
+                                src={props.user.avatar || <DefaultImage />} alt={props.user.name} />
                             <div className="card-info2">
                                 <h5>Profile Info</h5>
                                 <br />
