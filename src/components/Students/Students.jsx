@@ -4,7 +4,8 @@ import "../Students/Students.css"
 import "../Students/Student.css"
 import TagsInput from '../Tags/TagsInput'
 import IframePage from '../Projects/Projects'
-import { ReactComponent as defaultImage } from '../../images/user.png'
+import { ReactComponent as DefaultImage } from '../../images/user.png'
+
 
 const Students = (props) => {
     const [name, setName] = useState('')
@@ -84,7 +85,7 @@ const Students = (props) => {
                                 <p>Class: {props.user.cohort.classNo}</p>
                             </div>
                             <img className="image2"
-                                src={props.user.avatar || <defaultImage />} alt={props.user.name} />
+                                src={props.user.avatar || <DefaultImage />} alt={props.user.name} />
                             <div className="card-info2">
                                 <h5>Profile Info</h5>
                                 <br />
