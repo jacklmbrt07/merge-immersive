@@ -47,7 +47,12 @@ This project was created with heavy planning by our team, Daily meetings were he
 
 Including an iframe was a difficult challenge, that was partially solved. the poroblem is that the iframe could not request data from a specific user.
 the Edit form page lead to many problems upon figuring out the best way to be interactive.
+Inlluding github data into a User's profile has been attempeted but yet to be solved.
+Light and Dark mode button was attempted but unsolved.
 
 ## Future Enhancements
 
-Main issue we could not face was including a linked in API request, in order to show job data, this would be a useful feature.
+- Main issue we could not face was including a linked in API request, in order to show job data, this would be a useful feature.
+- Including a vetting process to make sure users are associated with GA
+- a profile strength progress bar
+- Users can comment or like on other people's features

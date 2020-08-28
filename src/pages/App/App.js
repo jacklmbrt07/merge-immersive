@@ -15,6 +15,7 @@ import axios from "axios";
 // import { ThemeProvider } from "styled-components";
 // import { GlobalStyles } from "./components/Globalstyle";
 // import { lightTheme, darkTheme } from "./components/Themes"
+
 class App extends React.Component {
   constructor() {
     super();
@@ -48,12 +49,23 @@ class App extends React.Component {
   handleSignUpOrLogin = () => {
     this.setState({ user: userService.getUser() });
   };
+  handleUpdateAllUsers = (allUsers) => {
+    this.setState({ allUsers });
+  };
   // handleTheme = () => {
   //   const [theme, setTheme] = useState('light');
   //   const themeToggler = () => {
   //     theme === 'light' ? setTheme('dark') : setTheme('light')
   //   }
   // };
+
+  // ---------LifeCycle Methods ----------//
+
+  async componentDidMount() {
+    const allUsers = await userService.index();
+    this.setState({ allUsers });
+  }
+
   render() {
     return (
       <>
@@ -85,24 +97,47 @@ class App extends React.Component {
             exact
             path="/login"
             render={(props) => (
-              <LoginPage {...props} handleSignUpOrLogin={this.handleSignUpOrLogin} />
+              <LoginPage
+                {...props}
+                handleSignUpOrLogin={this.handleSignUpOrLogin}
+              />
             )}
           />
-          <Route path="/profile" render={(props) => <UserDetail {...props} handleLogout={this.handleLogout}
-            user={this.state.user} />} />
-          {/* <Route
+          <Route
+            path="/profile"
+            render={(props) => (
+              <UserDetail
+                {...props}
+                handleLogout={this.handleLogout}
+                user={this.state.user}
+              />
+            )}
+          />
+          <Route
             path="/allusers"
+            render={() => (
+              <AllUsersPage
+                user={this.state.user}
+                allUsers={this.state.allUsers}
+                handleUpdateAllUsers={this.handleUpdateAllUsers}
+              />
+            )}
+          />
+          {/* <Route
+            path="/allusers/:id"
             render={() => <AllUsersPage user={this.state.user} />}
           /> */}
           <Route
-            path="/allusers/:id"
-            render={() => <AllUsersPage user={this.state.user} />}
-          />
-          <Route
             path="/edit"
-            render={(props) =>
-              <EditProfilePage {...props} handleLogout={this.handleLogout}
-                user={this.state.user} name={this.state.name} handleUpdateUser={this.handleUpdateUser} />}
+            render={(props) => (
+              <EditProfilePage
+                {...props}
+                handleLogout={this.handleLogout}
+                user={this.state.user}
+                name={this.state.name}
+                handleUpdateUser={this.handleUpdateUser}
+              />
+            )}
           />
           <Error />
         </Switch>

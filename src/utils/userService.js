@@ -60,11 +60,16 @@ function githubUser(user, info) {
     });
 }
 
+function index() {
+    return fetch(BASE_URL).then(res => res.json());
+  }
+
 export default {
     signup,
     getUser,
     logout,
     login,
     updateUser,
-    githubUser
+    githubUser,
+    index
 };
