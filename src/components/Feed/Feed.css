@@ -103,6 +103,10 @@ body {
   color: white;
 }
 
+.img-banner {
+  height: 206px;
+}
+
 .post-card__img .post-card__social ul li {
   display: inline-block;
   text-shadow: 0 1px rgba(0,0,0,0.5);

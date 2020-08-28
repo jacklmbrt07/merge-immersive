@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import "../Students/Students.css"
 import "../Students/Student.css"
 import TagsInput from '../Tags/TagsInput'
-import { ReactComponent as DefaultImage } from '../../images/user.png'
 import axios from 'axios'
 
 
@@ -100,7 +99,7 @@ const Students = (props) => {
                                 <p>Class: {props.user.cohort.classNo}</p>
                             </div>
                             <img className="image2"
-                                src={props.user.avatar || <DefaultImage />} alt={props.user.name} />
+                                src={`https://github.com/${props.user.githubUsername}.png`} alt={props.user.name} />
                             <div className="card-info2">
                                 <h5>Profile Info</h5>
                                 <br />
