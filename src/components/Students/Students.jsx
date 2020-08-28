@@ -19,28 +19,27 @@ const Students = (props) => {
     const [followers, setFollowers] = useState('')
     const [following, setFollowering] = useState('')
     const [repo, setRepo] = useState('')
-    const [userInput, setUserInput] = useState('')
 
 
 
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
-            method: "PUT",
-            body: JSON.stringify({
-                id: props.user._id,
-                githubUsername: props.user.githubUsername
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => {
-                console.log(res)
-                res.json().then(data => {
-                    setData(data)
-                })
-            })
-    }, []);
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
+    //         method: "PUT",
+    //         body: JSON.stringify({
+    //             id: props.user._id,
+    //             githubUsername: props.user.githubUsername
+    //         }),
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //         .then(res => {
+    //             console.log(res)
+    //             res.json().then(data => {
+    //                 setData(data)
+    //             })
+    //         })
+    // }, []);
 
     const setData = ({ avatar_url, html_url, bio, twitter_username, blog, followers, following, public_repos }) => {
         setImg(avatar_url);
