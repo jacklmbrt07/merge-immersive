@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import "../Students/Students.css"
 import "../Students/Student.css"
 import TagsInput from '../Tags/TagsInput'
+import { ReactComponent as DefaultImage } from '../../images/user.png'
+import { NavDropdown, ProgressBar } from 'react-bootstrap';
+
 import axios from 'axios'
 
 
@@ -17,6 +20,28 @@ const Students = (props) => {
     const [followers, setFollowers] = useState('')
     const [following, setFollowering] = useState('')
     const [repo, setRepo] = useState('')
+    const [userInput, setUserInput] = useState('')
+
+
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
+            method: "PUT",
+            body: JSON.stringify({
+                id: props.user._id,
+                githubUsername: props.user.githubUsername
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                console.log(res)
+                res.json().then(data => {
+                    setData(data)
+                })
+            })
+    }, []);
 
     // useEffect(() => {
     //     fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
@@ -115,7 +140,30 @@ const Students = (props) => {
                                 <hr />
                             </div>
                         </div>
+
+
+
                         <div className="card-container">
+
+                            <div className="post-card">
+                                <div className="post-card__content">
+                                    <div className="post-card__info">
+                                        <h2>Profile Progress</h2>
+                                        <ProgressBar now={80} label={`${80}%`} />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="post-card">
+                                <div className="post-card__content">
+                                    <div className="post-card__info">
+                                        <h2>User Bio</h2>
+                                        <p>{props.user.bio}</p>
+
+                                    </div>
+                                </div>
+                            </div>
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
