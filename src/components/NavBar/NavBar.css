@@ -121,7 +121,7 @@ a {
   padding: 1rem;
   overflow: hidden;
   transition: height var(--speed) ease;
-  min-height: 142px;
+  min-height: 134px;
 }
 
 .header-username {
