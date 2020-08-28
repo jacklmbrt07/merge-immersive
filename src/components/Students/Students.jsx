@@ -4,6 +4,8 @@ import "../Students/Student.css"
 import TagsInput from '../Tags/TagsInput'
 // import { ReactComponent as DefaultImage } from '../../images/user.png'
 import { NavDropdown, ProgressBar } from 'react-bootstrap';
+import { GoMarkGithub, GoPerson, GoLocation, GoBriefcase, GoGlobe } from 'react-icons/go';
+import { VscTwitter, VscBroadcast } from "react-icons/vsc";
 
 import axios from 'axios'
 // import loading-dog from '../../images/loading-dog.gif'
@@ -142,17 +144,17 @@ const Students = (props) => {
                             <img className="image2"
                                 src={`https://github.com/${props.user.githubUsername}.png`} alt={props.user.name} />
                             <div className="card-info2">
-                                <h5>Profile Info</h5>
+                                <h5 className="profileinfo">Profile Info</h5>
                                 <br />
-                                <p>Github Username:</p>
-                                <p> {props.user.githubUsername}</p>
+                                <p><GoMarkGithub /> Github Username:</p>
+                                <p><GoPerson /> {props.user.githubUsername}</p>
                                 <p className='repo-description'>{bio}</p>
                                 <hr />
-                                <p>Loaction: </p>
-                                <p>{props.user.location.city || 'GA Lounge Couch'}, {props.user.location.unitedState}</p>
+                                <p>< GoLocation /> Loaction: </p>
+                                <p><GoGlobe /> {props.user.location.city || 'GA Lounge Couch'}, {props.user.location.unitedState}</p>
                                 <hr />
-                                <p>Current Employer:</p>
-                                <p>{props.user.company || 'Independent'}</p>
+                                <p><GoBriefcase /> Current Employer:</p>
+                                <p><VscBroadcast /> {props.user.company || 'Independent'}</p>
                                 <hr />
                             </div>
                         </div>
@@ -164,7 +166,8 @@ const Students = (props) => {
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
-                                        <h2>Profile Progress</h2>
+                                        <h2 className='cardtitleinfo'>Profile Progress</h2>
+                                        <hr />
                                         <ProgressBar now={80} label={`${80}%`} />
 
                                     </div>
@@ -174,7 +177,8 @@ const Students = (props) => {
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
-                                        <h2>User Bio</h2>
+                                        <h2 className='cardtitleinfo'>User Bio</h2>
+                                        <hr />
                                         <p>{props.user.bio}</p>
 
                                     </div>
@@ -183,8 +187,8 @@ const Students = (props) => {
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
-                                        <h1> Github Stats</h1>
-
+                                        <h2 className='cardtitleinfo'>Github Stats</h2>
+                                        <hr />
                                         <form onSubmit={handleSubmit}>
                                             <button content="search">Generate</button>
 
@@ -237,12 +241,10 @@ const Students = (props) => {
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
-                                        <h1>Social</h1>
+                                        <h2 className='cardtitleinfo'> Social</h2>
+                                        <hr />
                                         <p>Favorite Emoji: <span role="img" alt="aria-label">{props.user.faveEmoji || 'This is our favorite Emoji 🤠'}</span></p>
-                                        <hr />
-                                        <h6>Social Media</h6>
-                                        <hr />
-                                        <p>Twitter Handle {isLoading} @{twitter || 'No Twitter Info.'}</p>
+                                        <p>Twitter Handle {isLoading} <VscTwitter /> @{twitter || 'No Twitter Info.'}</p>
                                         <a href={`https://${blog}`}> {isLoading}{blog}</a>
                                         <hr />
                                     </div>
@@ -251,7 +253,8 @@ const Students = (props) => {
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
-                                        <h1>Hobbies</h1>
+                                        <h2 className='cardtitleinfo'>Hobbies</h2>
+                                        <hr />
                                         <p>{props.user.hobbies}</p>
                                         <TagsInput selectedTags={selectedTags} user={props.user} />
                                         <hr />
@@ -262,7 +265,8 @@ const Students = (props) => {
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
-                                        <h1>Publications</h1>
+                                        <h2 className='cardtitleinfo'>Publications</h2>
+                                        <hr />
                                         {props.user.publications.map((publication, index) => (
                                             <span key={index}>
                                                 <p>{publication || 'The world is awaiting your greatness'}</p>
@@ -286,7 +290,8 @@ const Students = (props) => {
                             <div className="post-card">
                                 <div className="post-card__content">
                                     <div className="post-card__info">
-                                        <h1>Projects</h1>
+                                        <h2 className='cardtitleinfo'>Projects</h2>
+                                        <hr />
                                         {props.user.projects.map((project, index) => (
                                             < span key={index} >
                                                 <iframe title="p" height="600" width="600" src={project || 'The world is awaiting your greatness'}
