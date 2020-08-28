@@ -7,7 +7,6 @@ import userService from "../../utils/userService";
 import StateDrop from "./StateDrop";
 import Emoji2 from "./Emoji2";
 
-//use this tutorial https://code.tutsplus.com/tutorials/creating-a-blogging-app-using-react-part-5-profile-page--cms-29131
 
 class EditProfile extends Component {
   constructor(props) {
