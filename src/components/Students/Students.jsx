@@ -24,6 +24,7 @@ const Students = (props) => {
 
 
 
+
     // useEffect(() => {
     //     fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
     //         method: "PUT",
@@ -80,44 +81,51 @@ const Students = (props) => {
     const [repos, setRepos] = useState();
     const [follower, setFollower] = useState();
 
-    const handleSubmit = async () => {
-        const userName = props.user.githubUsername;
-        const githubUrl = `https://api.github.com/users/${userName}`;
-        const response = await axios.get(githubUrl
-            , {
-                headers: {
-                    "User-Agent": "hoseacodes",
-                    "Authorization": "token " + process.env.GitHub_Token
-                }
-            }
-        ).catch(err => console.log(err));
-        if (response) {
-            setData(response.data);
-            const followers_url = response.data;
-            await Promise.allSettled([
-                axios(`${rootUrl}/users/${userName}/repo?per_page=100`),
-                axios(`${followers_url}/?per_page=100`)
-            ]).then((results) => {
-                const [repos, followers] = results;
-                setRepos(repos.data);
-                setFollower(followers.data);
-            }).catch((err) => console.log(err));
-        }
-        checkRequests();
-        setIsLoading(false);
+    const handleSubmit = () => {
+        const githubUserURL = `https://api.github.com/users/${props.user.githubUsername}`;
+        axios.get(githubUserURL).then((res) => {
+            setData(res.data);
+        });
     }
 
-    const checkRequests = () => {
-        axios(`${rootUrl}/rate_limit`)
-            .then((data) => {
-                let {
-                    rate: { remaining },
-                } = data;
-                setRequests(remaining);
-            }).catch((error) => console.log(error));
-    };
+    // const handleSubmit = async () => {
+    //     const userName = props.user.githubUsername;
+    //     const githubUrl = `https://api.github.com/users/${userName}`;
+    //     const response = await axios.get(githubUrl
+    //         , {
+    //             headers: {
+    //                 "User-Agent": "hoseacodes",
+    //                 "Authorization": "token " + process.env.GitHub_Token
+    //             }
+    //         }
+    //     ).catch(err => console.log(err));
+    //     if (response) {
+    //         setData(response.data);
+    //         const followers_url = response.data;
+    //         await Promise.allSettled([
+    //             axios(`${rootUrl}/users/${userName}/repo?per_page=100`),
+    //             axios(`${followers_url}/?per_page=100`)
+    //         ]).then((results) => {
+    //             const [repos, followers] = results;
+    //             setRepos(repos.data);
+    //             setFollower(followers.data);
+    //         }).catch((err) => console.log(err));
+    //     }
+    //     checkRequests();
+    //     setIsLoading(false);
+    // }
 
-    useEffect(checkRequests, [])
+    // const checkRequests = () => {
+    //     axios(`${rootUrl}/rate_limit`)
+    //         .then((data) => {
+    //             let {
+    //                 rate: { remaining },
+    //             } = data;
+    //             setRequests(remaining);
+    //         }).catch((error) => console.log(error));
+    // };
+
+    // useEffect(checkRequests, [])
 
     const selectedTags = tags => {
         console.log(tags);
@@ -194,10 +202,10 @@ const Students = (props) => {
 
                                             {/* <h3>Requests Remaining: {requests} / 60</h3> */}
                                         </form>
-                                        <p>Followers: {isLoading} {followers}</p>
-                                        <p>Following: {isLoading}{following}</p>
-                                        <p>Repos: {isLoading}{repo}</p>
-                                        <a href={url}>Follow</a>
+                                        <p>Followers: {followers}</p>
+                                        <p>Following: {following}</p>
+                                        <p>Repos: {repo}</p>
+                                        <a className='cardtitleinfo' href={url}>Follow</a>
                                     </div>
                                 </div>
                             </div>
