@@ -7,7 +7,7 @@ class EditProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "", // Not sureif even necessary
+      message: "",
     };
   }
 
@@ -16,7 +16,11 @@ class EditProfilePage extends Component {
       <React.Fragment>
         <NavBar user={this.props.user} handleLogout={this.props.handleLogout} />
         <div className="EditProfilePage">
-          <EditProfile {...this.props} user={this.props.user} name={this.props.name} />
+          <EditProfile
+            {...this.props}
+            user={this.props.user}
+            name={this.props.name}
+          />
         </div>
         <Footer />
       </React.Fragment>

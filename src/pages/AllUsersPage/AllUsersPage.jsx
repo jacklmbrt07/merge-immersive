@@ -7,10 +7,8 @@ class AllUsersPage extends Component {
   };
   componentDidMount() {}
   render() {
-    console.log(process.env.DATABASE_URL)
 
     return (
-
       <>
         <NavBar />
         <div>

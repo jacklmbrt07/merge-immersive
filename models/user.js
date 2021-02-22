@@ -13,12 +13,6 @@ const cohortSchema = new Schema(
     },
     classNo: {
       type: String,
-      // validate: {
-      //   validator: (v) => {
-      //     return /d{3}/.test(v);
-      //   },
-      //   message: (props) => `${props.value} is not a valid class number`,
-      // },
       required: true,
     },
   },
@@ -34,15 +28,6 @@ const userSchema = new Schema(
     phoneNum: {
       type: String,
       maxlength: 10,
-      // // min: 1000000000,
-      // // max: 9999999999,
-      // validate: {
-      //   validator: (v) => {
-      //     return /d{10}/.test(v);
-      //   },
-      //   message: (props) => `${props.value} is not a valid phone number!`,
-      // },
-      // required: false,
     },
     avatar: String,
     email: {

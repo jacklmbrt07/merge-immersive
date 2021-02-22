@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./LoginPage.css";
 import userService from "../../utils/userService";
 import Container from "react-bootstrap/Container";
-// import Github from '../../components/Github/Github'
 
 class LoginPage extends Component {
   state = {
@@ -20,11 +19,10 @@ class LoginPage extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await userService.login(this.state); //or is it .signup
+      await userService.login(this.state);
       this.props.handleSignUpOrLogin();
       this.props.history.push("/");
     } catch (err) {
-      console.log("LoginPage Component: " + err);
       alert("Invalid Credentials!!!");
     }
   };
@@ -64,16 +62,14 @@ class LoginPage extends Component {
             <div className="form-group">
               <div className="col-sm-12 text-center">
                 <button className="btn btn-default">Log In</button>
-                <Link className="dark-text" to="/">Cancel</Link>
+                <Link className="dark-text" to="/">
+                  Cancel
+                </Link>
               </div>
             </div>
           </form>
-
-          {/* <Link to="/auth/github"> */}
-          {/* <Github /> */}
-          {/* </Link> */}
         </Container>
-      </div >
+      </div>
     );
   }
 }

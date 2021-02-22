@@ -4,11 +4,11 @@
 
 ### August 2020
 
-Students of our GA Cohort need a more direct way to communicate with each other, and reveal each others portfolios.
+Students of our GA Cohort need a more direct way to communicate with each other, and reveal each other's portfolios.
 
 The project idea came about by a similar topic and concept from Dominique's project 2, "Career Connect".
 
-Merge Immersive operates in a similar fashion to most social media websites but on a smaller scale. On the home page, you will see students profiles on cards, and their profile informaton upon clicking them. Within profiles, you can see a link to their github portfolio.
+Merge Immersive operates in a similar fashion to most social media websites but on a smaller scale. On the home page, you will see students profiles on cards, and their profile information upon clicking them. Within profiles, you can see a link to their github portfolio.
 
 ![Homepage](public/Screen1.png)
 Homepage
@@ -39,20 +39,20 @@ Dependencies used:
 To get started with this website, use the SIGN UP link to bring to the sign up page. This site is designed with GA students in mind. On the Sign Up page you will be prompted for an email address and name, and other information about your cohort.
 
 In the top right corner is a dropdown menu where a user can edit their profile information.
-Users can see each others profiles on a feed, which displays information they may have deemed willing to share with other classmates. For example, github projects, linked in information, their location, hobbies, etc.
+Users can see each other's profiles on a feed, which displays information they may have deemed willing to share with other classmates. For example, github projects, linked in information, their location, hobbies, etc.
 Click this link here to [Merge Immersive](http://www.mergeimmersive.com/)
 
 ![](public/trello.png)
 
-This project was created with heavy planning by our team, Daily meetings were helf, and meeting minutes were documented. see below for our trello board.
+This project was created with heavy planning by our team, Daily meetings were held, and meeting minutes were documented. see below for our trello board.
 [Link to our Trello Board](https://trello.com/b/yJeu0NwC)
 
 ## Unsolved Problems
 
 Creating a progress bar with the correct calculated number was not solved, as we were unable to return the correct.
-The Edit form page lead to many problems upon figuring out the best way to be interactive.
-Including the projects github data into a User's profile has been attempeted but yet to be solved.
-Light and Dark mode button was attempted but unsolved.
+The Edit form page leads to many problems upon figuring out the best way to be interactive.
+Including the projects github data into a User's profile has been attempted but yet to be solved.
+The Light and Dark mode button was attempted but unsolved.
 
 ## Future Enhancements
 

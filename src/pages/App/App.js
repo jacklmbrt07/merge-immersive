@@ -8,13 +8,8 @@ import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
 import Error from "../Error/Error";
 import AllUsersPage from "../AllUsersPage/AllUsersPage";
-import UserDetail from "../UserDetail/UserDetail"
+import UserDetail from "../UserDetail/UserDetail";
 import axios from "axios";
-
-// import axios from "axios"
-// import { ThemeProvider } from "styled-components";
-// import { GlobalStyles } from "./components/Globalstyle";
-// import { lightTheme, darkTheme } from "./components/Themes"
 
 class App extends React.Component {
   constructor() {
@@ -30,17 +25,16 @@ class App extends React.Component {
   };
 
   getAllUsers = () => {
-    axios.get('/api/users')
+    axios
+      .get("/api/users")
       .then((response) => {
         const data = response.data;
         this.setState({ users: data });
-        console.log(data)
-        // console.log('Data has been received!!');
       })
       .catch(() => {
-        alert('Error retrieving data!!!');
+        alert("Error retrieving data!!!");
       });
-  }
+  };
 
   handleLogout = () => {
     userService.logout();
@@ -52,12 +46,6 @@ class App extends React.Component {
   handleUpdateAllUsers = (allUsers) => {
     this.setState({ allUsers });
   };
-  // handleTheme = () => {
-  //   const [theme, setTheme] = useState('light');
-  //   const themeToggler = () => {
-  //     theme === 'light' ? setTheme('dark') : setTheme('light')
-  //   }
-  // };
 
   // ---------LifeCycle Methods ----------//
 
@@ -69,8 +57,6 @@ class App extends React.Component {
   render() {
     return (
       <>
-        {/* <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}> */}
-        {/* <GlobalStyles /> */}
         <Switch>
           <Route
             exact
@@ -123,10 +109,6 @@ class App extends React.Component {
               />
             )}
           />
-          {/* <Route
-            path="/allusers/:id"
-            render={() => <AllUsersPage user={this.state.user} />}
-          /> */}
           <Route
             path="/edit"
             render={(props) => (
@@ -141,7 +123,6 @@ class App extends React.Component {
           />
           <Error />
         </Switch>
-        {/* </ThemeProvider> */}
       </>
     );
   }

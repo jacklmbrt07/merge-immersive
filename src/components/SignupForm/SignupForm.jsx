@@ -27,17 +27,11 @@ class SignupForm extends Component {
     try {
       await userService.signup(this.state);
       this.props.handleSignUpOrLogin();
-      console.log(this.props.history)
-      console.log(this.props)
       this.props.history.push("/");
     } catch (err) {
       this.props.updateMessage(err.message);
     }
   };
-
-  // isFormInvalid() {
-  //     return !(this.state.name && this.state.email && this.state.password && this.state.discipline && this.state.classNo === this.state.passwordConf);
-  // }
 
   render() {
     return (
@@ -121,23 +115,12 @@ class SignupForm extends Component {
                 />
               </div>
             </div>
-            {/* <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Confirm Password"
-                value={this.state.passwordConf}
-                name="passwordConf"
-                onChange={this.handleChange}
-              />
-            </div>
-          </div> */}
             <div className="form-group">
               <div className="col-sm-12 text-center">
-                {/* disabled={this.isFormInvalid()} */}
                 <button className="btn btn-default">Sign Up</button>&nbsp;&nbsp;
-              <Link className="dark-text" to="/">Cancel</Link>
+                <Link className="dark-text" to="/">
+                  Cancel
+                </Link>
               </div>
             </div>
           </form>

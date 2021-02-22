@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import Alert from '../Alert';
+import React, { useState } from "react";
+import Alert from "../Alert";
 
 export default function Upload() {
-  const [fileInputState, setFileInputState] = useState('');
-  const [previewSource, setPreviewSource] = useState('');
+  const [fileInputState, setFileInputState] = useState("");
+  const [previewSource, setPreviewSource] = useState("");
   const [selectedFile, setSelectedFile] = useState();
-  const [successMsg, setSuccessMsg] = useState('');
-  const [errMsg, setErrMsg] = useState('');
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errMsg, setErrMsg] = useState("");
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     previewFile(file);
@@ -31,24 +31,24 @@ export default function Upload() {
       uploadImage(reader.result);
     };
     reader.onerror = () => {
-      console.error('AHHHHHHHH!!');
-      setErrMsg('something went wrong!');
+      console.error("AHHHHHHHH!!");
+      setErrMsg("something went wrong!");
     };
   };
 
   const uploadImage = async (base64EncodedImage) => {
     try {
-      await fetch('/api/upload', {
-        method: 'POST',
+      await fetch("/api/upload", {
+        method: "POST",
         body: JSON.stringify({ data: base64EncodedImage }),
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
-      setFileInputState('');
-      setPreviewSource('');
-      setSuccessMsg('Image uploaded successfully');
+      setFileInputState("");
+      setPreviewSource("");
+      setSuccessMsg("Image uploaded successfully");
     } catch (err) {
       console.error(err);
-      setErrMsg('Something went wrong!');
+      setErrMsg("Something went wrong!");
     }
   };
   return (
@@ -67,14 +67,10 @@ export default function Upload() {
         />
         <button className="btn" type="submit" onChange={handleFileInputChange}>
           Submit
-              </button>
+        </button>
       </form>
       {previewSource && (
-        <img
-          src={previewSource}
-          alt="chosen"
-          style={{ height: '300px' }}
-        />
+        <img src={previewSource} alt="chosen" style={{ height: "300px" }} />
       )}
     </div>
   );
