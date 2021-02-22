@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../Students/Students.css";
 import "../Students/Student.css";
 import TagsInput from "../Tags/TagsInput";
@@ -12,7 +12,6 @@ import {
 } from "react-icons/go";
 import { VscTwitter, VscBroadcast } from "react-icons/vsc";
 
-import axios from "axios";
 
 const Students = (props) => {
   const [setImg] = useState("");
